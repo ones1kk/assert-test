@@ -31,7 +31,7 @@
 
   <dependencies>
 
-
+    <!-- Maven Plugins-->
     <dependency>
       <groupId>org.apache.maven.plugins</groupId>
       <artifactId>maven-resources-plugin</artifactId>
@@ -94,7 +94,6 @@
         <version>2.22.2</version>
         <configuration>
           <testFailureIgnore>false</testFailureIgnore>
-
           <includes>
             <include>**/*Test.java</include>
           </includes>

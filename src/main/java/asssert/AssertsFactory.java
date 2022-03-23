@@ -1,6 +1,8 @@
 package asssert;
 
-public interface AssertsFactory {
+public interface AssertsFactory extends AssertsFactories {
+
+
 
 
 }

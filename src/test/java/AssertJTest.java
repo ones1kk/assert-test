@@ -17,7 +17,10 @@ public class AssertJTest {
     void test2() {
         String actual = "hello";
 
-        Asserts.assertThat(actual);
+
+
+        Asserts.assertThat(actual).isNotNull().isNotEmpty();
+        Asserts.assertThat(actual).isNull().isEmpty();
     }
 
 }

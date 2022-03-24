@@ -1,8 +1,14 @@
 package asssert.core;
 
-public class StringAssert extends AbstractStringAssert<StringAssert> {
+public class StringAssert extends AbstractStringAssert<StringAssert, String> {
 
-    public StringAssert(String actual) {
-        super(actual, StringAssert.class);
+    protected StringAssert(String actual) {
+        super(actual, new StringAssert());
+        System.out.println("StringAssert.StringAssert = "+ actual);
+    }
+
+
+    protected StringAssert() {
+        super();
     }
 }

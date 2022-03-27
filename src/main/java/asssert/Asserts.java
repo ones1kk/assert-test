@@ -8,7 +8,7 @@ public class Asserts {
     protected Asserts() {
     }
 
-    public static AbstractStringAssert<String> assertThat(String actual) {
+    public static AbstractStringAssert<?, String> assertThat(String actual) {
         return AssertsForType.assertThat(actual);
     }
 

@@ -1,32 +1,27 @@
 package asssert.core;
 
-public class AbstractStringAssert<ACTUAL> extends AbstractInstanceAssert<ACTUAL> {
+public class AbstractStringAssert<SELF extends AbstractInstanceAssert<ACTUAL>, ACTUAL> extends AbstractInstanceAssert<ACTUAL> {
 
-    protected AbstractStringAssert(ACTUAL actual) {
-        this.actual = actual;
-        System.out.println("AbstractStringAssert.AbstractStringAssert = " + actual);
+    protected AbstractStringAssert(Class<?> self, ACTUAL actual) {
+        super(self, actual);
     }
 
-    protected AbstractStringAssert() {
-
-    }
-
-    public AbstractStringAssert<ACTUAL> isNull() {
+    public AbstractStringAssert<SELF, ACTUAL> isNull() {
         assert actual == null;
         return this;
     }
 
-    public AbstractStringAssert<ACTUAL> isEmpty() {
+    public AbstractStringAssert<SELF, ACTUAL> isEmpty() {
         assert actual.toString().isEmpty();
         return this;
     }
 
-    public AbstractStringAssert<ACTUAL> isNotNull() {
+    public AbstractStringAssert<SELF, ACTUAL> isNotNull() {
         assert actual != null;
         return this;
     }
 
-    public AbstractStringAssert<ACTUAL> isNotEmpty() {
+    public AbstractStringAssert<SELF, ACTUAL> isNotEmpty() {
         assert !actual.toString().isEmpty();
         return this;
     }

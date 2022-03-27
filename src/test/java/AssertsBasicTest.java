@@ -11,7 +11,7 @@ public class AssertsBasicTest {
     @DisplayName("Assertions")
     void test1() {
         String str = "hello";
-        Assertions.assertThat(str).isNotNull().isNotEmpty().isNotBlank().isEqualTo("hello");
+        Assertions.assertThat(str).as("actual was {}", str).isNotNull().isNotEmpty().isNotBlank().isEqualTo("hello");
     }
 
     @Test

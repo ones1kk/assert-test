@@ -6,4 +6,8 @@ public class AssertsForType {
         return new StringAssert(actual);
     }
 
+    public static AbstractCharSequenceAssert<?, Character> assertThat(Character actual) {
+        return new CharacterAssert(CharacterAssert.class, actual);
+    }
+
 }

@@ -8,12 +8,13 @@ public class AbstractStringAssert<SELF extends AbstractStringAssert<SELF>> exten
     }
 
     public SELF isEmpty() {
-        assert actual.toString().isEmpty();
+        assert actual.isEmpty();
         return self;
     }
 
     public SELF isNotEmpty() {
-        assert !actual.toString().isEmpty();
+        assert !actual.isEmpty();
         return self;
     }
+
 }

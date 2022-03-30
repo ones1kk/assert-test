@@ -1,18 +1,16 @@
 package asssert.core;
 
 import java.util.Objects;
-import org.apache.commons.lang3.ClassUtils;
 
-public abstract class AbstractInstanceAssert<SELF, ACTUAL> {
+public abstract class AbstractObjectAssert<SELF, ACTUAL> {
 
     protected final SELF self;
 
     protected final ACTUAL actual;
 
-    protected AbstractInstanceAssert(SELF self, ACTUAL actual) {
+    protected AbstractObjectAssert(Class<?> self, ACTUAL actual) {
+        this.self = (SELF) self.cast(this);
         this.actual = actual;
-        this.self = self;
-        System.out.println("self = " + self);
     }
 
     public SELF isNull() {

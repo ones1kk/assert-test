@@ -1,9 +1,9 @@
 package asssert.core;
 
-public class StringAssert<SELF extends AbstractInstanceAssert<SELF, String>> extends AbstractStringAssert<SELF, String>{
+public class StringAssert extends AbstractStringAssert<StringAssert> {
 
-    protected StringAssert(String actual) {
-        super(null, actual);
+    public StringAssert(String actual) {
+        super(StringAssert.class, actual);
     }
 
 }

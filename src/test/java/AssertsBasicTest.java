@@ -1,8 +1,6 @@
 import asssert.Assertion;
-import asssert.core.AbstractStringAssert;
 import asssert.core.CharacterAssert;
 import asssert.core.StringAssert;
-import asssert.core.handler.CharSequenceAssert;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

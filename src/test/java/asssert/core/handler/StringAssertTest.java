@@ -1,6 +1,6 @@
 package asssert.core.handler;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -13,7 +13,8 @@ class StringAssertTest {
     void test1() {
         String actual = "hello";
         StringAssert<?, String> stringAssert = new StringAssert(StringAssert.class, String.class);
-        Assertions.assertThat(stringAssert).isInstanceOf(Assert.class).isInstanceOf(CharSequenceAssert.class);
+        Assertions.assertThat(stringAssert).isInstanceOf(Assert.class)
+            .isInstanceOf(CharSequenceAssert.class);
     }
 
     @Test
@@ -34,7 +35,7 @@ class StringAssertTest {
         String actual2 = "hello";
 
         StringAssert<?, String> stringAssert = new StringAssert(StringAssert.class, String.class);
-        assertThrows( RuntimeException.class, () -> stringAssert.isNotEmpty(actual1));
-        assertThrows( RuntimeException.class, () -> stringAssert.isEmpty(actual2));
+        assertThrows(RuntimeException.class, () -> stringAssert.isNotEmpty(actual1));
+        assertThrows(RuntimeException.class, () -> stringAssert.isEmpty(actual2));
     }
 }

@@ -1,26 +1,9 @@
 package asssert.core.handler;
 
-public class CharSequenceAssert<SELF> extends Assert<SELF> {
+public class CharSequenceAssert<SELF, ACTUAL> extends Assert<SELF, ACTUAL> {
 
-    protected CharSequenceAssert(Class<?> self) {
-        super(self);
+    protected CharSequenceAssert(Class<?> self, ACTUAL actual) {
+        super(self, actual);
     }
-
-    public SELF isUpperCase(Character actual) {
-        boolean result = Character.isUpperCase(actual);
-        if (!result) {
-            throw exception;
-        }
-        return self;
-    }
-
-    public SELF isLowerCase(Character actual) {
-        boolean result = Character.isLowerCase(actual);
-        if (!result) {
-            throw exception;
-        }
-        return self;
-    }
-
 
 }

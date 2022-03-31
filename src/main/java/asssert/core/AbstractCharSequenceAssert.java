@@ -7,24 +7,5 @@ public abstract class AbstractCharSequenceAssert<SELF extends AbstractCharSequen
         super(self, actual);
     }
 
-    public SELF isUpperCase() {
-        return self;
-    }
-
-    public SELF isLowerCase() {
-        return self;
-    }
-
-    public SELF isLetter() {
-        return self;
-    }
-
-    public SELF isDigit() {
-        return self;
-    }
-
-    public SELF isWhitespace() {
-        return self;
-    }
 
 }

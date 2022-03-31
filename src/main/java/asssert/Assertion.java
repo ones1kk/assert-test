@@ -1,6 +1,6 @@
 package asssert;
 
-import asssert.core.AbstractCharSequenceAssert;
+import asssert.core.AbstractCharacterAssert;
 import asssert.core.AbstractStringAssert;
 import asssert.core.AssertsForType;
 
@@ -13,7 +13,7 @@ public class Assertion {
         return AssertsForType.assertThat(actual);
     }
 
-    public static AbstractCharSequenceAssert<?, Character> assertThat(Character actual) {
+    public static AbstractCharacterAssert<?, Character> assertThat(Character actual) {
         return AssertsForType.assertThat(actual);
     }
 

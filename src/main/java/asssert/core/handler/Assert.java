@@ -1,8 +1,14 @@
 package asssert.core.handler;
 
-public interface Assert<ACTUAL> {
+public abstract class Assert<SELF> {
 
-    boolean isSupport(ACTUAL actual);
+    protected final SELF self;
 
+    protected final RuntimeException exception = new RuntimeException();
+
+
+    protected Assert(Class<?> self) {
+        this.self = (SELF) self.cast(this);
+    }
 
 }

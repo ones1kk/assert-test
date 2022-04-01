@@ -2,7 +2,8 @@ package asssert.core;
 
 import java.util.Objects;
 
-public abstract class AbstractObjectAssert<SELF, ACTUAL> implements InterfaceObjectAssert<SELF, ACTUAL>{
+public abstract class AbstractObjectAssert<SELF, ACTUAL> implements
+    InterfaceObjectAssert<SELF, ACTUAL> {
 
     protected final SELF self;
 

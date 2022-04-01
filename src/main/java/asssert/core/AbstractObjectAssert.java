@@ -2,7 +2,7 @@ package asssert.core;
 
 import java.util.Objects;
 
-public abstract class AbstractObjectAssert<SELF, ACTUAL> {
+public abstract class AbstractObjectAssert<SELF, ACTUAL> implements InterfaceObjectAssert<SELF, ACTUAL>{
 
     protected final SELF self;
 
@@ -13,11 +13,13 @@ public abstract class AbstractObjectAssert<SELF, ACTUAL> {
         this.actual = actual;
     }
 
+    @Override
     public SELF isNull() {
         assert actual == null;
         return self;
     }
 
+    @Override
     public SELF isNotNull() {
         assert actual != null;
         return self;
@@ -28,20 +30,22 @@ public abstract class AbstractObjectAssert<SELF, ACTUAL> {
         return self;
     }
 
+    @Override
     public SELF isEqualTo(ACTUAL expected) {
         assert (Objects.deepEquals(actual, expected));
         return self;
     }
 
+    @Override
     public SELF isNotEqualTo(ACTUAL expected) {
         assert !(Objects.deepEquals(actual, expected));
         return self;
     }
 
+    @Override
     public SELF isInstanceOf(Class<?> expected) {
         assert actual.getClass().isAssignableFrom(expected);
         return self;
     }
-
 
 }

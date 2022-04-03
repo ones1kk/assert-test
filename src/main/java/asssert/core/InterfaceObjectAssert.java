@@ -12,6 +12,6 @@ public interface InterfaceObjectAssert<SELF, ACTUAL> {
 
     SELF isNotEqualTo(ACTUAL expected);
 
-    SELF isInstanceOf(Class<?> expected);
+    SELF isAssignableFrom(Class<?> expected);
 
 }

@@ -1,13 +1,15 @@
 package asssert.core;
 
-import java.util.Objects;
+import asssert.core.handler.AnonymousObjectAssert;
 
 public abstract class AbstractObjectAssert<SELF, ACTUAL> implements
-    InterfaceObjectAssert<SELF, ACTUAL> {
+    InterfaceObjectAssert<SELF, Object> {
 
     protected final SELF self;
 
     protected final ACTUAL actual;
+
+    protected final  AnonymousObjectAssert objectAssert = new AnonymousObjectAssert();
 
     protected AbstractObjectAssert(Class<?> self, ACTUAL actual) {
         this.self = (SELF) self.cast(this);
@@ -16,36 +18,36 @@ public abstract class AbstractObjectAssert<SELF, ACTUAL> implements
 
     @Override
     public SELF isNull() {
-        assert actual == null;
+        this.objectAssert.isNull(actual);
         return self;
     }
 
     @Override
     public SELF isNotNull() {
-        assert actual != null;
+        this.objectAssert.isNotNull(actual);
         return self;
     }
 
-    public SELF isSameAs(ACTUAL expected) {
-        assert actual == expected;
-        return self;
-    }
-
-    @Override
-    public SELF isEqualTo(ACTUAL expected) {
-        assert (Objects.deepEquals(actual, expected));
+    public SELF isSameAs(Object expected) {
+        this.objectAssert.isSameAs(actual, expected);
         return self;
     }
 
     @Override
-    public SELF isNotEqualTo(ACTUAL expected) {
-        assert !(Objects.deepEquals(actual, expected));
+    public SELF isEqualTo(Object expected) {
+        this.objectAssert.isEqualTo(actual, expected);
         return self;
     }
 
     @Override
-    public SELF isInstanceOf(Class<?> expected) {
-        assert actual.getClass().isAssignableFrom(expected);
+    public SELF isNotEqualTo(Object expected) {
+        this.objectAssert.isNotEqualTo(actual, expected);
+        return self;
+    }
+
+    @Override
+    public SELF isAssignableFrom(Class<?> expected) {
+        this.objectAssert.isAssignableFrom(actual, expected);
         return self;
     }
 

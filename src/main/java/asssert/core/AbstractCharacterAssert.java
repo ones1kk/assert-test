@@ -6,7 +6,7 @@ import asssert.core.handler.AssertFactory;
 public class AbstractCharacterAssert<SELF extends AbstractCharacterAssert<SELF, Character>, ACTUAL> extends
     AbstractObjectAssert<SELF, Character> {
 
-    protected AnonymousCharacterAssert characterAssert ;
+    protected AnonymousCharacterAssert characterAssert;
 
     protected AbstractCharacterAssert(Class<?> self, Character actual) {
         super(self, actual);

@@ -1,6 +1,6 @@
 package asssert.core.handler;
 
-public class AnonymousCharSequenceAssert<T> extends AbstractAssert {
+public class AnonymousCharSequenceAssert extends AbstractAssert {
 
 
 }

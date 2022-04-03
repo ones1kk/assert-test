@@ -5,15 +5,15 @@ import org.apache.commons.lang3.StringUtils;
 public class AnonymousStringAssert extends AnonymousCharSequenceAssert {
 
 
-    public void isEmpty(String actaul) {
-        boolean result = StringUtils.isEmpty(actaul);
+    public void isEmpty(String actual) {
+        boolean result = StringUtils.isEmpty(actual);
         if (!result) {
             throw exception;
         }
     }
 
-    public void isNotEmpty(String actaul) {
-        boolean result = StringUtils.isNotEmpty(actaul);
+    public void isNotEmpty(String actual) {
+        boolean result = StringUtils.isNotEmpty(actual);
         if (!result) {
             throw exception;
         }

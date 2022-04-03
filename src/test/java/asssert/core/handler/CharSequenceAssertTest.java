@@ -1,6 +1,6 @@
 package asssert.core.handler;
 
-class CharSequenceAssertTest {
+class AnonymousCharSequenceAssertTest {
 
 
 }

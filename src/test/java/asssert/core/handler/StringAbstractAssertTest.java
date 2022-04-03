@@ -12,7 +12,7 @@ class StringAbstractAssertTest {
     @DisplayName("validate instance inheritance relationship")
     void test1() {
         String actual = "hello";
-        AnonymousStringAssert<String> stringAssert = new AnonymousStringAssert(String.class);
+        AnonymousStringAssert stringAssert = new AnonymousStringAssert();
         Assertions.assertThat(stringAssert).isInstanceOf(AbstractAssert.class)
             .isInstanceOf(AnonymousCharSequenceAssert.class);
     }
@@ -23,7 +23,7 @@ class StringAbstractAssertTest {
         String actual1 = "hello";
         String actual2 = "";
 
-        AnonymousStringAssert<String> stringAssert = new AnonymousStringAssert(String.class);
+        AnonymousStringAssert stringAssert = new AnonymousStringAssert();
         stringAssert.isNotEmpty(actual1);
         stringAssert.isEmpty(actual2);
     }
@@ -34,7 +34,7 @@ class StringAbstractAssertTest {
         String actual1 = "";
         String actual2 = "hello";
 
-        AnonymousStringAssert<String> stringAssert = new AnonymousStringAssert(String.class);
+        AnonymousStringAssert stringAssert = new AnonymousStringAssert();
         assertThrows(RuntimeException.class, () -> stringAssert.isNotEmpty(actual1));
         assertThrows(RuntimeException.class, () -> stringAssert.isEmpty(actual2));
     }

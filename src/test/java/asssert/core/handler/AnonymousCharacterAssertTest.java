@@ -11,7 +11,7 @@ class AnonymousCharacterAssertTest {
     @Test
     @DisplayName("validate instance inheritance relationship")
     void test1() {
-        AnonymousCharacterAssert<Character> anonymousCharacterAssert = new AnonymousCharacterAssert(Character.class);
+        AnonymousCharacterAssert anonymousCharacterAssert = new AnonymousCharacterAssert();
         Assertions.assertThat(anonymousCharacterAssert).isInstanceOf(AbstractAssert.class)
             .isInstanceOf(AnonymousCharacterAssert.class);
     }
@@ -25,7 +25,7 @@ class AnonymousCharacterAssertTest {
         char actual4 = '1';
         char actual5 = ' ';
 
-        AnonymousCharacterAssert<Character> anonymousCharacterAssert = new AnonymousCharacterAssert(Character.class);
+        AnonymousCharacterAssert anonymousCharacterAssert = new AnonymousCharacterAssert();
 
         anonymousCharacterAssert.isUpperCase(actual1);
         anonymousCharacterAssert.isLowerCase(actual2);
@@ -44,7 +44,7 @@ class AnonymousCharacterAssertTest {
         char actual4 = 'a';
         char actual5 = 'a';
 
-        AnonymousCharacterAssert<Character> anonymousCharacterAssert = new AnonymousCharacterAssert(Character.class);
+        AnonymousCharacterAssert anonymousCharacterAssert = new AnonymousCharacterAssert();
 
         assertThrows(RuntimeException.class, () -> anonymousCharacterAssert.isUpperCase(actual1));
         assertThrows(RuntimeException.class, () -> anonymousCharacterAssert.isLowerCase(actual2));

@@ -10,11 +10,11 @@ class AbstractAssertFactoryTest {
     void test1() {
         String actual1 = "hello";
 
-        AnonymousStringAssert<String> stringAssert = (AnonymousStringAssert<String>) AssertFactory.createAssert(actual1);
+        AnonymousStringAssert stringAssert = (AnonymousStringAssert) AssertFactory.createAssert(actual1);
         stringAssert.isNotEmpty(actual1);
 
         char actual2 = 'a';
-        AnonymousCharacterAssert<Character> characterAssert = (AnonymousCharacterAssert<Character>) AssertFactory.createAssert(actual2);
+        AnonymousCharacterAssert characterAssert = (AnonymousCharacterAssert) AssertFactory.createAssert(actual2);
         characterAssert.isLowerCase(actual2);
     }
 

@@ -1,6 +1,6 @@
 package asssert.core.handler;
 
-public final class AssertFactory<T> {
+public final class AssertFactory {
 
     public static AbstractAssert createAssert(Object value) {
         Class<?> clazz = value.getClass();

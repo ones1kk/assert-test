@@ -9,7 +9,7 @@ public abstract class AbstractObjectAssert<SELF, ACTUAL> implements
 
     protected final ACTUAL actual;
 
-    protected final  AnonymousObjectAssert objectAssert = new AnonymousObjectAssert();
+    protected final AnonymousObjectAssert objectAssert = new AnonymousObjectAssert();
 
     protected AbstractObjectAssert(Class<?> self, ACTUAL actual) {
         this.self = (SELF) self.cast(this);

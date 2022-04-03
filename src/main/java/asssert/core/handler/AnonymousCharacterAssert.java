@@ -1,10 +1,7 @@
 package asssert.core.handler;
 
-public class AnonymousCharacterAssert<T> extends AbstractAssert<T> {
+public class AnonymousCharacterAssert extends AbstractAssert {
 
-    public AnonymousCharacterAssert(Class<T> type) {
-        super(type);
-    }
 
     public void isUpperCase(Character actual) {
         boolean result = Character.isUpperCase(actual);

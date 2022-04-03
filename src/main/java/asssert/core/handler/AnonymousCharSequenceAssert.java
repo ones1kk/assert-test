@@ -1,9 +1,6 @@
 package asssert.core.handler;
 
-public class AnonymousCharSequenceAssert<T> extends AbstractAssert<T> {
+public class AnonymousCharSequenceAssert<T> extends AbstractAssert {
 
-    protected AnonymousCharSequenceAssert(Class<T> type) {
-        super(type);
-    }
 
 }

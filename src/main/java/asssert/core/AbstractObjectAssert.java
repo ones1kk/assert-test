@@ -1,13 +1,12 @@
 package asssert.core;
 
-import asssert.core.description.Describable;
-import asssert.core.description.Description;
+import asssert.core.description.TextDescription;
 import asssert.core.handler.AnonymousObjectAssert;
 import asssert.core.handler.AssertFactory;
 import java.util.function.Supplier;
 import javax.annotation.Nullable;
 
-public abstract class AbstractObjectAssert<SELF, ACTUAL> extends Description<SELF> implements
+public abstract class AbstractObjectAssert<SELF, ACTUAL> extends TextDescription<SELF> implements
     InterfaceObjectAssert<SELF, Object> {
 
     protected final SELF self;

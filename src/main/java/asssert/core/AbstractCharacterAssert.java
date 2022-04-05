@@ -10,7 +10,7 @@ public class AbstractCharacterAssert<SELF extends AbstractCharacterAssert<SELF, 
 
     protected AbstractCharacterAssert(Class<?> self, Character actual) {
         super(self, actual);
-        this.characterAssert = (AnonymousCharacterAssert) AssertFactory.createAssert(actual);
+        this.characterAssert = AssertFactory.createAssert(actual);
     }
 
     public SELF isUpperCase() {

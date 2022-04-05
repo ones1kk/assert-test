@@ -1,17 +1,12 @@
 package asssert.core.description;
 
 import java.util.function.Supplier;
+import javax.annotation.Nullable;
 
 public interface Describable<SELF> {
 
-    default SELF as(String description, Object... args) {
-        return describedAs(new TextDescription<SELF>(description, args));
-    }
+    void describedAs(Supplier<String> description, @Nullable Object... args);
 
-    default SELF as(Supplier<String> descriptionSupplier) {
-        return describedAs(new TextDescription<SELF>(descriptionSupplier));
-    }
-
-    SELF describedAs(Description<SELF> description);
+    void describedAs(String description, @Nullable Object... args);
 
 }

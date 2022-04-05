@@ -1,9 +1,13 @@
 package asssert.core;
 
+import asssert.core.description.Describable;
+import asssert.core.description.Description;
 import asssert.core.handler.AnonymousObjectAssert;
 import asssert.core.handler.AssertFactory;
+import java.util.function.Supplier;
+import javax.annotation.Nullable;
 
-public abstract class AbstractObjectAssert<SELF, ACTUAL> implements
+public abstract class AbstractObjectAssert<SELF, ACTUAL> extends Description<SELF> implements
     InterfaceObjectAssert<SELF, Object> {
 
     protected final SELF self;
@@ -13,6 +17,7 @@ public abstract class AbstractObjectAssert<SELF, ACTUAL> implements
     protected AnonymousObjectAssert objectAssert;
 
     protected AbstractObjectAssert(Class<?> self, ACTUAL actual) {
+        super(self);
         this.self = (SELF) self.cast(this);
         this.actual = actual;
         this.objectAssert = AssertFactory.createAssert(actual);
@@ -51,6 +56,16 @@ public abstract class AbstractObjectAssert<SELF, ACTUAL> implements
     @Override
     public SELF isAssignableFrom(Class<?> expected) {
         this.objectAssert.isAssignableFrom(actual, expected);
+        return self;
+    }
+
+    public SELF as(Supplier<String> supplier, @Nullable  Object... args) {
+        this.describedAs(supplier, args);
+        return self;
+    }
+
+    public SELF as(String description, @Nullable Object... args) {
+        this.describedAs(description, args);
         return self;
     }
 

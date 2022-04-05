@@ -1,21 +1,23 @@
 package asssert.core.description;
 
 import java.util.function.Supplier;
+import javax.annotation.Nullable;
 
 public abstract class Description<SELF> implements Describable<SELF> {
 
-    @Override
-    public SELF as(String description, Object... args) {
-        return Describable.super.as(description, args);
+    protected final SELF self;
+
+    public Description(Class<?> self) {
+        this.self = (SELF) self.cast(this);
     }
 
     @Override
-    public SELF as(Supplier<String> descriptionSupplier) {
-        return Describable.super.as(descriptionSupplier);
+    public void describedAs(Supplier<String> description, @Nullable Object... args) {
+
     }
 
     @Override
-    public SELF describedAs(Description<SELF> description) {
-        return null;
+    public void describedAs(String description, @Nullable Object... args) {
+
     }
 }

@@ -1,6 +1,7 @@
 package asssert.core;
 
 import asssert.core.handler.AnonymousObjectAssert;
+import asssert.core.handler.AssertFactory;
 
 public abstract class AbstractObjectAssert<SELF, ACTUAL> implements
     InterfaceObjectAssert<SELF, Object> {
@@ -9,11 +10,12 @@ public abstract class AbstractObjectAssert<SELF, ACTUAL> implements
 
     protected final ACTUAL actual;
 
-    protected final AnonymousObjectAssert objectAssert = new AnonymousObjectAssert();
+    protected AnonymousObjectAssert objectAssert;
 
     protected AbstractObjectAssert(Class<?> self, ACTUAL actual) {
         this.self = (SELF) self.cast(this);
         this.actual = actual;
+        this.objectAssert = AssertFactory.createAssert(actual);
     }
 
     @Override
@@ -28,6 +30,7 @@ public abstract class AbstractObjectAssert<SELF, ACTUAL> implements
         return self;
     }
 
+    @Override
     public SELF isSameAs(Object expected) {
         this.objectAssert.isSameAs(actual, expected);
         return self;

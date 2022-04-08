@@ -7,14 +7,16 @@ public class AnonymousStringAssert extends AnonymousCharSequenceAssert {
     public void isEmpty(String actual) {
         boolean result = StringUtils.isEmpty(actual);
         if (!result) {
-            throw exception;
+            this.message  = "isNull";
+            throw getException(message);
         }
     }
 
     public void isNotEmpty(String actual) {
         boolean result = StringUtils.isNotEmpty(actual);
         if (!result) {
-            throw exception;
+            this.message  = "isNull";
+            throw getException(message);
         }
     }
 

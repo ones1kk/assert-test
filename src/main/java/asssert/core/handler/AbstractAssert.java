@@ -1,19 +1,21 @@
 package asssert.core.handler;
 
-import asssert.core.description.Describable;
 import java.util.Objects;
-import java.util.function.Supplier;
-import javax.annotation.Nullable;
 
-public abstract class AbstractAssert implements InterfaceAssert {
+public abstract class AbstractAssert implements InterfaceAssert  {
 
-    protected final RuntimeException exception = new RuntimeException();
+    protected String message;
+
+    protected RuntimeException getException(String message) {
+        return new RuntimeException(message);
+    }
 
     @Override
     public void isNull(Object actual) {
         boolean result = actual == null;
         if (!result) {
-            throw exception;
+            this.message  = actual + " is not null";
+            throw getException(message);
         }
     }
 
@@ -21,7 +23,8 @@ public abstract class AbstractAssert implements InterfaceAssert {
     public void isNotNull(Object actual) {
         boolean result = actual != null;
         if (!result) {
-            throw exception;
+            this.message  = actual + " is null";
+            throw getException(message);
         }
     }
 
@@ -29,7 +32,8 @@ public abstract class AbstractAssert implements InterfaceAssert {
     public void isSameAs(Object actual, Object expected) {
         boolean result = actual == expected;
         if (!result) {
-            throw exception;
+            this.message  = (actual +  " is not same as " + expected);
+            throw getException(message);
         }
     }
 
@@ -37,7 +41,8 @@ public abstract class AbstractAssert implements InterfaceAssert {
     public void isEqualTo(Object actual, Object expected) {
         boolean result = (Objects.deepEquals(actual, expected));
         if (!result) {
-            throw exception;
+            this.message  = (actual +  " is not equal to " + expected);
+            throw getException(message);
         }
     }
 
@@ -45,7 +50,8 @@ public abstract class AbstractAssert implements InterfaceAssert {
     public void isNotEqualTo(Object actual, Object expected) {
         boolean result = !(Objects.deepEquals(actual, expected));
         if (!result) {
-            throw exception;
+            this.message  = (actual +  " is equal to " + expected);
+            throw getException(message);
         }
     }
 
@@ -53,7 +59,9 @@ public abstract class AbstractAssert implements InterfaceAssert {
     public void isAssignableFrom(Object actual, Class<?> expected) {
         boolean result = actual.getClass().isAssignableFrom(expected);
         if (!result) {
-            throw exception;
+            this.message  = (actual +  " is not assignable from " + expected);
+            throw getException(message);
         }
     }
+
 }

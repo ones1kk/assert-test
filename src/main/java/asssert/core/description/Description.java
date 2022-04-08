@@ -11,6 +11,7 @@ public abstract class Description<SELF> implements Describable<SELF> {
     protected final SELF self;
 
     public Description(Class<?> self) {
+        System.out.println("Description.Description");
         this.self = (SELF) self.cast(this);
     }
 
@@ -24,10 +25,7 @@ public abstract class Description<SELF> implements Describable<SELF> {
 
     @Override
     public void describedAs(String description, @Nullable Object... args) {
-        System.out.println("description = " + description);
-        assert args != null;
-        for (Object arg : args) {
-            System.out.println("arg = " + arg);
-        }
+        String result = String.format(description.replace("{}", "%s"), args);
+        System.out.println("result = " + result);
     }
 }

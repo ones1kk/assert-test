@@ -1,10 +1,9 @@
 package asssert.core.description;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import asssert.Assertion;
-import java.util.Arrays;
-import java.util.List;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -13,14 +12,20 @@ class DescriptionTest {
     @Test
     @DisplayName("Basic Feature Test(prototype)")
     void test1() {
-        String actual = "hello";
-        List<String> argumentList = Arrays.asList("hello", "world", "bye", "world");
+        String actual = null;
 
-        Assertion.assertThat(actual).as(()-> "hello world").isSameAs("hello").isNotNull().isNotEmpty();
-        Assertion.assertThat(actual).as(()-> "hello world {} {} {}", "!", 1, argumentList);
-        Assertion.assertThat(actual).as("hello world");
-        Assertion.assertThat(actual).as("hello world {} {}", "?", 2);
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> Assertion.assertThat(actual).as(() -> "hello it's kind of {}"));
 
+        Assertions.assertThrows(RuntimeException.class,
+            () -> Assertion.assertThat(actual).as(() -> "hello it's kind of {}", "test")
+                .isNotNull());
+
+        String message = Assertions.assertThrows(RuntimeException.class,
+            () -> Assertion.assertThat(actual).as(() -> "hello it's kind of {}", "test")
+                .isNotNull()).getMessage();
+
+        assertThat(message).isEqualTo("hello it's kind of test");
     }
 
 }

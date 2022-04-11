@@ -6,26 +6,25 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import javax.annotation.Nullable;
 
-public abstract class Description<SELF> implements Describable<SELF> {
+public abstract class Description implements Describable {
 
-    protected final SELF self;
-
-    public Description(Class<?> self) {
-        System.out.println("Description.Description");
-        this.self = (SELF) self.cast(this);
+    @Override
+    public String describedAs(Supplier<String> supplier, @Nullable Object... args) {
+        return getFormattingDescription(supplier.get(), args);
     }
 
     @Override
-    public void describedAs(Supplier<String> supplier, @Nullable Object... args) {
-        String description = supplier.get().replace("{}", "%s");
-        String result = String.format(description, args);
-
-        System.out.println(result);
+    public String describedAs(String description, @Nullable Object... args) {
+       return getFormattingDescription(description, args);
     }
 
-    @Override
-    public void describedAs(String description, @Nullable Object... args) {
-        String result = String.format(description.replace("{}", "%s"), args);
-        System.out.println("result = " + result);
+    private String getFormattingDescription(String description, Object[] args) {
+        if (description.contains("{}")) {
+            if(args == null) throw new RuntimeException();
+            return String.format(description.replace("{}", "%s"), args);
+        }else {
+            return description;
+        }
+
     }
 }

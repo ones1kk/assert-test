@@ -6,6 +6,7 @@ import java.util.Objects;
 public abstract class AbstractAssert extends TextDescription implements InterfaceAssert {
 
     public String asDescription;
+
     protected String defaultDescription;
 
     protected RuntimeException getException(String message) {

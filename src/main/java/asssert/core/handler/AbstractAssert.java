@@ -1,66 +1,79 @@
 package asssert.core.handler;
 
+import asssert.core.description.TextDescription;
 import java.util.Objects;
 
-public abstract class AbstractAssert implements InterfaceAssert  {
+public abstract class AbstractAssert extends TextDescription implements InterfaceAssert  {
 
-    protected String message;
+    protected String defaultDescription;
+
+    public String asDescription;
 
     protected RuntimeException getException(String message) {
         return new RuntimeException(message);
     }
 
+    public String setDescription() {
+        return !asDescription.equals(null) ? asDescription : defaultDescription;
+    }
+
     @Override
     public void isNull(Object actual) {
         boolean result = actual == null;
+        this.defaultDescription  = actual + " is not null";
         if (!result) {
-            this.message  = actual + " is not null";
-            throw getException(message);
+            String description = setDescription();
+            throw getException(description);
         }
     }
 
     @Override
     public void isNotNull(Object actual) {
         boolean result = actual != null;
+        this.defaultDescription  = actual + " is null";
         if (!result) {
-            this.message  = actual + " is null";
-            throw getException(message);
+            String description = setDescription();
+            throw getException(description);
         }
     }
 
     @Override
     public void isSameAs(Object actual, Object expected) {
         boolean result = actual == expected;
+        this.defaultDescription  = (actual +  " is not same as " + expected);
         if (!result) {
-            this.message  = (actual +  " is not same as " + expected);
-            throw getException(message);
+            String description = setDescription();
+            throw getException(description);
         }
     }
 
     @Override
     public void isEqualTo(Object actual, Object expected) {
         boolean result = (Objects.deepEquals(actual, expected));
+        this.defaultDescription  = (actual +  " is not equal to " + expected);
         if (!result) {
-            this.message  = (actual +  " is not equal to " + expected);
-            throw getException(message);
+            String description = setDescription();
+            throw getException(description);
         }
     }
 
     @Override
     public void isNotEqualTo(Object actual, Object expected) {
         boolean result = !(Objects.deepEquals(actual, expected));
+        this.defaultDescription  = (actual +  " is equal to " + expected);
         if (!result) {
-            this.message  = (actual +  " is equal to " + expected);
-            throw getException(message);
+            String description = setDescription();
+            throw getException(description);
         }
     }
 
     @Override
     public void isAssignableFrom(Object actual, Class<?> expected) {
         boolean result = actual.getClass().isAssignableFrom(expected);
+        this.defaultDescription  = (actual +  " is not assignable from " + expected);
         if (!result) {
-            this.message  = (actual +  " is not assignable from " + expected);
-            throw getException(message);
+            String description = setDescription();
+            throw getException(description);
         }
     }
 

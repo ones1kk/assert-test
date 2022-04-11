@@ -7,7 +7,7 @@ public class AnonymousStringAssert extends AnonymousCharSequenceAssert {
     public void isEmpty(String actual) {
         boolean result = StringUtils.isEmpty(actual);
         if (!result) {
-            this.defaultDescription  = "isNull";
+            this.defaultDescription = "isNull";
             throw getException(defaultDescription);
         }
     }
@@ -15,7 +15,7 @@ public class AnonymousStringAssert extends AnonymousCharSequenceAssert {
     public void isNotEmpty(String actual) {
         boolean result = StringUtils.isNotEmpty(actual);
         if (!result) {
-            this.defaultDescription  = "isNull";
+            this.defaultDescription = "isNull";
             throw getException(defaultDescription);
         }
     }

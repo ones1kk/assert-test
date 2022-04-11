@@ -57,7 +57,7 @@ public abstract class AbstractObjectAssert<SELF, ACTUAL> extends TextDescription
         return self;
     }
 
-    public SELF as(Supplier<String> supplier, @Nullable  Object... args) {
+    public SELF as(Supplier<String> supplier, @Nullable Object... args) {
         this.objectAssert.asDescription = this.describedAs(supplier, args);
         return self;
     }

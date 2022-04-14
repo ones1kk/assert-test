@@ -17,7 +17,8 @@ public abstract class AbstractAssert extends TextDescription implements Interfac
     }
 
     public String setDescription() {
-        return AbstractAssert.asDescription != null ? AbstractAssert.asDescription : this.defaultDescription;
+        return AbstractAssert.asDescription != null ? AbstractAssert.asDescription
+            : this.defaultDescription;
     }
 
     @Override

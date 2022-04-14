@@ -1,7 +1,5 @@
 package asssert.core;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import asssert.Assertion;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

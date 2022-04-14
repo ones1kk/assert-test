@@ -2,7 +2,6 @@ package asssert.core.description;
 
 import asssert.Assertion;
 import asssert.core.exception.AssertException;
-import java.util.stream.Stream;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,15 +14,12 @@ class TextDescriptionTest {
         String actual1 = "hello";
         char actual2 = 'h';
 
-
-
 //        Assertion.assertThat(actual1).isEqualTo(actual2);
 //        Assertion.assertThat(actual1).isAssignableFrom(Character.class);
 //        Assertion.assertThat(actual1).isSameAs(actual2);
 //        Assertion.assertThat(actual1).isNull();
 //        Assertion.assertThat(actual2).isDigit();
 //        Assertion.assertThat(actual2).isUpperCase();
-
 
     }
 
@@ -66,7 +62,7 @@ class TextDescriptionTest {
             () -> Assertion.assertThat("3rd").as("first").isNotNull().as("third")
                 .isEmpty()).getMessage();
 
-        System.out.println( message1);
+        System.out.println(message1);
         t1.join();
         t2.join();
 

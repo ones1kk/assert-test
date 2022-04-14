@@ -1,7 +1,5 @@
 package asssert.core.description;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import asssert.Assertion;
 import asssert.core.exception.AssertException;
 import org.junit.jupiter.api.Assertions;

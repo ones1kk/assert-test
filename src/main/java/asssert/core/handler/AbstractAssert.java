@@ -1,6 +1,7 @@
 package asssert.core.handler;
 
 import asssert.core.description.TextDescription;
+import asssert.core.exception.AssertException;
 import java.util.Objects;
 
 public abstract class AbstractAssert extends TextDescription implements InterfaceAssert {
@@ -9,12 +10,14 @@ public abstract class AbstractAssert extends TextDescription implements Interfac
 
     protected String defaultDescription;
 
-    protected RuntimeException getException(String message) {
-        return new RuntimeException(message);
+    protected AssertException getException(String message) {
+        AssertException assertException = new AssertException(message);
+        assertException.setStackTrace(new StackTraceElement[]{});
+        return assertException;
     }
 
     public String setDescription() {
-        return !asDescription.equals(null) ? asDescription : defaultDescription;
+        return asDescription != null ? asDescription : defaultDescription;
     }
 
     @Override
@@ -23,7 +26,7 @@ public abstract class AbstractAssert extends TextDescription implements Interfac
         this.defaultDescription = actual + " is not null";
         if (!result) {
             String description = setDescription();
-            throw getException(description);
+            throw getException(setDefaultText(actual, null, description));
         }
     }
 
@@ -33,7 +36,7 @@ public abstract class AbstractAssert extends TextDescription implements Interfac
         this.defaultDescription = actual + " is null";
         if (!result) {
             String description = setDescription();
-            throw getException(description);
+            throw getException(setDefaultText(actual, null, description));
         }
     }
 
@@ -43,7 +46,7 @@ public abstract class AbstractAssert extends TextDescription implements Interfac
         this.defaultDescription = (actual + " is not same as " + expected);
         if (!result) {
             String description = setDescription();
-            throw getException(description);
+            throw getException(setDefaultText(actual, expected, description));
         }
     }
 
@@ -53,7 +56,7 @@ public abstract class AbstractAssert extends TextDescription implements Interfac
         this.defaultDescription = (actual + " is not equal to " + expected);
         if (!result) {
             String description = setDescription();
-            throw getException(description);
+            throw getException(setDefaultText(actual, expected, description));
         }
     }
 
@@ -63,7 +66,7 @@ public abstract class AbstractAssert extends TextDescription implements Interfac
         this.defaultDescription = (actual + " is equal to " + expected);
         if (!result) {
             String description = setDescription();
-            throw getException(description);
+            throw getException(setDefaultText(actual, expected, description));
         }
     }
 
@@ -73,7 +76,7 @@ public abstract class AbstractAssert extends TextDescription implements Interfac
         this.defaultDescription = (actual + " is not assignable from " + expected);
         if (!result) {
             String description = setDescription();
-            throw getException(description);
+            throw getException(setDefaultText(actual, expected, description));
         }
     }
 

@@ -26,7 +26,8 @@ class DescriptionTest {
             () -> Assertion.assertThat(actual).as(() -> "hello it's kind of {}", "test")
                 .isNotNull()).getMessage();
 
-        assertThat(message).isEqualTo("hello it's kind of test");
+        System.out.println(message);
+
     }
 
     @Test

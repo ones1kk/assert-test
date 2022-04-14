@@ -1,6 +1,7 @@
 package asssert.core;
 
 import asssert.core.description.TextDescription;
+import asssert.core.handler.AbstractAssert;
 import asssert.core.handler.AnonymousObjectAssert;
 import asssert.core.handler.AssertFactory;
 import java.util.function.Supplier;
@@ -58,12 +59,12 @@ public abstract class AbstractObjectAssert<SELF, ACTUAL> extends TextDescription
     }
 
     public SELF as(Supplier<String> supplier, @Nullable Object... args) {
-        this.objectAssert.asDescription = this.describedAs(supplier, args);
+        AbstractAssert.asDescription = this.describedAs(supplier, args);
         return self;
     }
 
     public SELF as(String description, @Nullable Object... args) {
-        this.objectAssert.asDescription = this.describedAs(description, args);
+        AbstractAssert.asDescription = this.describedAs(description, args);
         return self;
     }
 

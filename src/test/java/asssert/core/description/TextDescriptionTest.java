@@ -24,7 +24,7 @@ class TextDescriptionTest {
     }
 
     @Test
-    @DisplayName("Description concurrency test(FAIL)")
+    @DisplayName("Description concurrency test")
     void test2() throws InterruptedException {
         Thread t1 = new Thread(new Runnable() {
             public void run() {

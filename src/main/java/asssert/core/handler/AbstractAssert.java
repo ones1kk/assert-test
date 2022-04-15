@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public abstract class AbstractAssert extends TextDescription implements InterfaceAssert {
 
-    public static String asDescription;
+    public String asDescription;
 
     protected String defaultDescription;
 
@@ -17,7 +17,7 @@ public abstract class AbstractAssert extends TextDescription implements Interfac
     }
 
     public String setDescription() {
-        return AbstractAssert.asDescription != null ? AbstractAssert.asDescription
+        return this.asDescription != null ? this.asDescription
             : this.defaultDescription;
     }
 

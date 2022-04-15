@@ -10,7 +10,7 @@ public class AbstractStringAssert<SELF extends AbstractStringAssert<SELF>> exten
 
     protected AbstractStringAssert(Class<?> self, String actual) {
         super(self, actual);
-        this.stringAssert = AssertFactory.createAssert(actual);
+        this.stringAssert = assertFactory.createAssert(actual);
     }
 
     public SELF isEmpty() {

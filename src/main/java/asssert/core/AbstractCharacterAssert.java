@@ -1,7 +1,6 @@
 package asssert.core;
 
 import asssert.core.handler.AnonymousCharacterAssert;
-import asssert.core.handler.AssertFactory;
 
 public class AbstractCharacterAssert<SELF extends AbstractCharacterAssert<SELF, Character>, ACTUAL> extends
     AbstractObjectAssert<SELF, Character> {

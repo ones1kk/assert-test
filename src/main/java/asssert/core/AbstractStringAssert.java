@@ -1,7 +1,6 @@
 package asssert.core;
 
 import asssert.core.handler.AnonymousStringAssert;
-import asssert.core.handler.AssertFactory;
 
 public class AbstractStringAssert<SELF extends AbstractStringAssert<SELF>> extends
     AbstractCharSequenceAssert<SELF, String> {

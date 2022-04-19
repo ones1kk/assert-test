@@ -12,14 +12,30 @@ public class AbstractStringAssert<SELF extends AbstractStringAssert<SELF>> exten
         this.stringAssert = assertFactory.createAssert(actual);
     }
 
-    public SELF isEmpty() {
-        this.stringAssert.isEmpty(actual);
+    public SELF isLessThan(String expected) {
+        this.stringAssert.isLessThan(actual, expected);
         return self;
     }
 
-    public SELF isNotEmpty() {
-        this.stringAssert.isNotEmpty(actual);
+    public SELF isLessThanOrEqualTo(String expected) {
+        this.stringAssert.isLessThanOrEqualTo(actual, expected);
         return self;
     }
+
+    public SELF isGreaterThan(String expected) {
+        this.stringAssert.isGreaterThan(actual, expected);
+        return self;
+    }
+
+    public SELF isGreaterThanOrEqualTo(String expected) {
+        this.stringAssert.isGreaterThanOrEqualTo(actual, expected);
+        return self;
+    }
+
+    public SELF isBetween(String start, String end) {
+        this.stringAssert.isBetween(actual, start, end);
+        return self;
+    }
+
 
 }

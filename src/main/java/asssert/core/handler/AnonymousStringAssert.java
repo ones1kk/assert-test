@@ -1,25 +1,34 @@
 package asssert.core.handler;
 
+import asssert.core.feature.Comparable;
+import javax.lang.model.element.Element;
 import org.apache.commons.lang3.StringUtils;
 
-public class AnonymousStringAssert extends AnonymousCharSequenceAssert {
+public class AnonymousStringAssert extends AnonymousCharSequenceAssert implements Comparable<String>{
 
-    public void isEmpty(String actual) {
-        boolean result = StringUtils.isEmpty(actual);
-        this.defaultDescription = actual + " is not empty";
-        if (!result) {
-            String description = setDescription();
-            throw getException(setDefaultText(actual, null, description));
-        }
+    @Override
+    public void isLessThan(String actual, Object expected) {
+
     }
 
-    public void isNotEmpty(String actual) {
-        boolean result = StringUtils.isNotEmpty(actual);
-        this.defaultDescription = actual + " is empty";
-        if (!result) {
-            String description = setDescription();
-            throw getException(setDefaultText(actual, null, description));
-        }
+    @Override
+    public void isLessThanOrEqualTo(String actual, Object expected) {
+
+    }
+
+    @Override
+    public void isGreaterThan(String actual, Object expected) {
+
+    }
+
+    @Override
+    public void isGreaterThanOrEqualTo(String actual, Object expected) {
+
+    }
+
+    @Override
+    public void isBetween(String actual, Object start, Object end) {
+
     }
 
 }

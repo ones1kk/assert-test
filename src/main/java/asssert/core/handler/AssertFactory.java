@@ -14,4 +14,8 @@ public final class AssertFactory {
         return new AnonymousCharacterAssert();
     }
 
+    public AnonymousCharSequenceAssert createAssert(CharSequence value) {
+        return new AnonymousCharSequenceAssert();
+    }
+
 }

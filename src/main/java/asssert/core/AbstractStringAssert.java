@@ -37,5 +37,4 @@ public class AbstractStringAssert<SELF extends AbstractStringAssert<SELF>> exten
         return self;
     }
 
-
 }

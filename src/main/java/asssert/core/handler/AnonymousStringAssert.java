@@ -1,10 +1,9 @@
 package asssert.core.handler;
 
 import asssert.core.feature.Comparable;
-import javax.lang.model.element.Element;
-import org.apache.commons.lang3.StringUtils;
 
-public class AnonymousStringAssert extends AnonymousCharSequenceAssert implements Comparable<String>{
+public class AnonymousStringAssert extends AnonymousCharSequenceAssert implements
+    Comparable<String> {
 
     @Override
     public void isLessThan(String actual, Object expected) {

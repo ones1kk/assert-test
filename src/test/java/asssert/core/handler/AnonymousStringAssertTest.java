@@ -1,10 +1,6 @@
 package asssert.core.handler;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import asssert.Assertion;
-import java.util.Comparator;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

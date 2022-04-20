@@ -2,7 +2,6 @@ package asssert.core.handler;
 
 import asssert.core.description.TextDescription;
 import asssert.core.exception.AssertException;
-import java.util.Objects;
 
 public abstract class AbstractAssert extends TextDescription implements InterfaceAssert {
 

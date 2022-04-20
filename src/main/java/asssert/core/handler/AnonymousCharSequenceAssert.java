@@ -2,7 +2,7 @@ package asssert.core.handler;
 
 import org.apache.commons.lang3.StringUtils;
 
-public class AnonymousCharSequenceAssert extends AbstractAssert {
+public class AnonymousCharSequenceAssert extends AnonymousObjectAssert {
 
     public void isEmpty(String actual) {
         boolean result = StringUtils.isEmpty(actual);

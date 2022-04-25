@@ -16,9 +16,9 @@ public abstract class AbstractObjectAssert<SELF, ACTUAL> implements
 
     protected final AssertFactory assertFactory = new AssertFactory();
 
-    protected AnonymousObjectAssert objectAssert;
-
     protected final Describable describable = new TextDescription();
+
+    protected AnonymousObjectAssert objectAssert;
 
     protected AbstractObjectAssert(Class<?> self, ACTUAL actual) {
         this.self = (SELF) self.cast(this);

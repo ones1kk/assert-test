@@ -1,7 +1,9 @@
 package asssert.core.handler;
 
+import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import asssert.core.exception.AssertException;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -52,6 +54,82 @@ class AnonymousCharacterAssertTest {
         assertThrows(RuntimeException.class, () -> anonymousCharacterAssert.isDigit(actual4));
         assertThrows(RuntimeException.class, () -> anonymousCharacterAssert.isWhitespace(actual5));
 
+    }
+
+    @Test
+    @DisplayName("AnonymousCharacterAssert operators(success)")
+    void test4() {
+        char actual1 = 'A';
+        char actual2 = 'B';
+        char actual3 = 'C';
+
+        char expected1 = 'A';
+        char expected2 = 'B';
+        char expected3 = 'C';
+
+        AnonymousCharacterAssert characterAssert = new AnonymousCharacterAssert();
+
+        // actual < expected
+        characterAssert.isLessThan(actual1, expected2);
+        // actual > expected
+        characterAssert.isGreaterThan(actual2, expected1);
+
+        // actual == expected
+        characterAssert.isLessThanOrEqualTo(actual1, expected1);
+        // actual < expected
+        characterAssert.isLessThanOrEqualTo(actual1, expected2);
+
+        // actual == expected
+        characterAssert.isGreaterThanOrEqualTo(actual3, expected3);
+        // actual >= expected
+        characterAssert.isGreaterThanOrEqualTo(actual3, expected2);
+
+        // start < actual < end
+        characterAssert.isBetween(actual2, expected1, expected3);
+
+    }
+
+    @Test
+    @DisplayName("AnonymousCharacterAssert operators(fail)")
+    void test5() {
+        char actual1 = 'A';
+        char actual2 = 'B';
+        char actual3 = 'C';
+
+        char expected1 = 'A';
+        char expected2 = 'B';
+        char expected3 = 'C';
+
+        AnonymousCharacterAssert characterAssert = new AnonymousCharacterAssert();
+
+        // actual > expected
+        assertThrows(AssertException.class,
+            () -> characterAssert.isLessThan(actual2, expected1));
+        // actual == expected
+        assertThrows(AssertException.class,
+            () -> characterAssert.isLessThan(actual2, expected2));
+
+        // actual < expected
+        assertThrows(AssertException.class,
+            () -> characterAssert.isGreaterThan(actual1, expected2));
+        // actual == expected
+        assertThrows(AssertException.class,
+            () -> characterAssert.isGreaterThan(actual1, expected1));
+
+        // actual > expected
+        assertThrows(AssertException.class,
+            () -> characterAssert.isLessThanOrEqualTo(actual2, expected1));
+
+        // actual < expected
+        assertThrows(AssertException.class,
+            () -> characterAssert.isGreaterThanOrEqualTo(actual2, expected3));
+
+        // actual < start
+        assertThrows(AssertException.class,
+            () -> characterAssert.isBetween(actual1, expected2, expected3));
+        // actual > end
+        assertThrows(AssertException.class,
+            () -> characterAssert.isBetween(actual3, expected1, expected2));
     }
 
 }

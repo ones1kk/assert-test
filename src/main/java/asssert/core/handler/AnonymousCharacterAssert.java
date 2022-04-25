@@ -1,6 +1,8 @@
 package asssert.core.handler;
 
-public class AnonymousCharacterAssert extends AnonymousObjectAssert {
+import asssert.core.feature.ComparableAssert;
+
+public class AnonymousCharacterAssert extends AnonymousObjectAssert implements ComparableAssert<Character> {
 
     public void isUpperCase(Character actual) {
         boolean result = Character.isUpperCase(actual);
@@ -44,6 +46,56 @@ public class AnonymousCharacterAssert extends AnonymousObjectAssert {
         if (!result) {
             String description = setDescription();
             throw getException(setDefaultText(actual, null, description));
+        }
+    }
+
+    @Override
+    public void isLessThan(Character actual, Character expected) {
+        int result = actual.compareTo(expected);
+        this.defaultDescription = actual + " is not less than " + expected;
+        if (result != -1) {
+            String description = setDescription();
+            throw getException(setDefaultText(actual, expected, description));
+        }
+    }
+
+    @Override
+    public void isLessThanOrEqualTo(Character actual, Character expected) {
+        int result = actual.compareTo(expected);
+        this.defaultDescription = actual + " is not less than or Equal to " + expected;
+        if (result == 1) {
+            String description = setDescription();
+            throw getException(setDefaultText(actual, expected, description));
+        }
+    }
+
+    @Override
+    public void isGreaterThan(Character actual, Character expected) {
+        int result = actual.compareTo(expected);
+        this.defaultDescription = actual + " is not greater than " + expected;
+        if (result != 1) {
+            String description = setDescription();
+            throw getException(setDefaultText(actual, expected, description));
+        }
+    }
+
+    @Override
+    public void isGreaterThanOrEqualTo(Character actual, Character expected) {
+        int result = actual.compareTo(expected);
+        this.defaultDescription = actual + " is not greater than or Equal to " + expected;
+        if (result == -1) {
+            String description = setDescription();
+            throw getException(setDefaultText(actual, expected, description));
+        }
+    }
+
+    @Override
+    public void isBetween(Character actual, Character start, Character end) {
+        if ((actual.compareTo(start) == -1) || ((
+            actual.compareTo(end) == 1))) {
+            this.defaultDescription = actual + " is not between " + start + "  and " + end;
+            String description = setDescription();
+            throw getException(setDefaultText(actual, start + " ~ " + end, description));
         }
     }
 

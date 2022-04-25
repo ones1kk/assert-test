@@ -36,4 +36,29 @@ public class AbstractCharacterAssert<SELF extends AbstractCharacterAssert<SELF, 
         this.characterAssert.isWhitespace(actual);
         return self;
     }
+
+    public SELF isLessThan(Character expected) {
+        this.characterAssert.isLessThan(actual, expected);
+        return self;
+    }
+
+    public SELF isLessThanOrEqualTo(Character expected) {
+        this.characterAssert.isLessThanOrEqualTo(actual, expected);
+        return self;
+    }
+
+    public SELF isGreaterThan(Character expected) {
+        this.characterAssert.isGreaterThan(actual, expected);
+        return self;
+    }
+
+    public SELF isGreaterThanOrEqualTo(Character expected) {
+        this.characterAssert.isGreaterThanOrEqualTo(actual, expected);
+        return self;
+    }
+
+    public SELF isBetween(Character start, Character end) {
+        this.characterAssert.isBetween(actual, start, end);
+        return self;
+    }
 }

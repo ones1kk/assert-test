@@ -1,6 +1,5 @@
 package asssert.core.handler;
 
-import asssert.Assertion;
 import asssert.core.exception.AssertException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -55,25 +54,33 @@ class AnonymousStringAssertTest {
         AnonymousStringAssert stringAssert = new AnonymousStringAssert();
 
         // actual > expected
-        Assertions.assertThrows(AssertException.class, () -> stringAssert.isLessThan(actual2, expected1));
+        Assertions.assertThrows(AssertException.class,
+            () -> stringAssert.isLessThan(actual2, expected1));
         // actual == expected
-        Assertions.assertThrows(AssertException.class, () -> stringAssert.isLessThan(actual2, expected2));
+        Assertions.assertThrows(AssertException.class,
+            () -> stringAssert.isLessThan(actual2, expected2));
 
         // actual < expected
-        Assertions.assertThrows(AssertException.class, () -> stringAssert.isGreaterThan(actual1, expected2));
+        Assertions.assertThrows(AssertException.class,
+            () -> stringAssert.isGreaterThan(actual1, expected2));
         // actual == expected
-        Assertions.assertThrows(AssertException.class, () -> stringAssert.isGreaterThan(actual1, expected1));
+        Assertions.assertThrows(AssertException.class,
+            () -> stringAssert.isGreaterThan(actual1, expected1));
 
         // actual > expected
-        Assertions.assertThrows(AssertException.class, () -> stringAssert.isLessThanOrEqualTo(actual2, expected1));
+        Assertions.assertThrows(AssertException.class,
+            () -> stringAssert.isLessThanOrEqualTo(actual2, expected1));
 
         // actual < expected
-        Assertions.assertThrows(AssertException.class, () -> stringAssert.isGreaterThanOrEqualTo(actual2, expected3));
+        Assertions.assertThrows(AssertException.class,
+            () -> stringAssert.isGreaterThanOrEqualTo(actual2, expected3));
 
         // actual < start
-        Assertions.assertThrows(AssertException.class, () -> stringAssert.isBetween(actual1, expected2, expected3));
+        Assertions.assertThrows(AssertException.class,
+            () -> stringAssert.isBetween(actual1, expected2, expected3));
         // actual > end
-        Assertions.assertThrows(AssertException.class, () -> stringAssert.isBetween(actual3, expected1, expected2));
+        Assertions.assertThrows(AssertException.class,
+            () -> stringAssert.isBetween(actual3, expected1, expected2));
 
     }
 

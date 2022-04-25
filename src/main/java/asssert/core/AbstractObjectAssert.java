@@ -1,12 +1,13 @@
 package asssert.core;
 
+import asssert.core.description.Describable;
 import asssert.core.description.TextDescription;
 import asssert.core.handler.AnonymousObjectAssert;
 import asssert.core.handler.AssertFactory;
 import java.util.function.Supplier;
 import javax.annotation.Nullable;
 
-public abstract class AbstractObjectAssert<SELF, ACTUAL> extends TextDescription implements
+public abstract class AbstractObjectAssert<SELF, ACTUAL> implements
     InterfaceObjectAssert<SELF, Object> {
 
     protected final SELF self;
@@ -16,6 +17,8 @@ public abstract class AbstractObjectAssert<SELF, ACTUAL> extends TextDescription
     protected final AssertFactory assertFactory = new AssertFactory();
 
     protected AnonymousObjectAssert objectAssert;
+
+    protected final Describable describable = new TextDescription();
 
     protected AbstractObjectAssert(Class<?> self, ACTUAL actual) {
         this.self = (SELF) self.cast(this);
@@ -60,12 +63,12 @@ public abstract class AbstractObjectAssert<SELF, ACTUAL> extends TextDescription
     }
 
     public SELF as(Supplier<String> supplier, @Nullable Object... args) {
-        this.objectAssert.asDescription = this.describedAs(supplier, args);
+        this.objectAssert.asDescription = this.describable.describedAs(supplier, args);
         return self;
     }
 
     public SELF as(String description, @Nullable Object... args) {
-        this.objectAssert.asDescription = this.describedAs(description, args);
+        this.objectAssert.asDescription = this.describable.describedAs(description, args);
         return self;
     }
 

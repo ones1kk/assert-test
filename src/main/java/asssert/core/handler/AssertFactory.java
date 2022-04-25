@@ -18,4 +18,8 @@ public final class AssertFactory {
         return new AnonymousCharSequenceAssert();
     }
 
+    public AnonymousIntegerAssert createAssert(Integer value) {
+        return new AnonymousIntegerAssert();
+    }
+
 }

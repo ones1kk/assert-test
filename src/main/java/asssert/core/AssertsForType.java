@@ -10,4 +10,12 @@ public class AssertsForType {
         return new CharacterAssert(CharacterAssert.class, actual);
     }
 
+    public static AbstractIntegerAssert<?, Integer> assertThat(Integer actual) {
+        return new IntegerAssert(IntegerAssert.class, actual);
+    }
+
+    public static AbstractIntegerAssert<?, Integer> assertThat(int actual) {
+        return new IntegerAssert(IntegerAssert.class, actual);
+    }
+
 }

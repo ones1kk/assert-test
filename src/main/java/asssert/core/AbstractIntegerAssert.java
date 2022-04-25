@@ -2,7 +2,8 @@ package asssert.core;
 
 import asssert.core.handler.AnonymousIntegerAssert;
 
-public class AbstractIntegerAssert<SELF extends AbstractIntegerAssert<SELF, Integer> , ACTUAL> extends AbstractObjectAssert<SELF, Integer> {
+public class AbstractIntegerAssert<SELF extends AbstractIntegerAssert<SELF, Integer>, ACTUAL> extends
+    AbstractObjectAssert<SELF, Integer> {
 
     protected AnonymousIntegerAssert integerAssert;
 

@@ -2,7 +2,8 @@ package asssert.core.handler;
 
 import asssert.core.feature.ComparableAssert;
 
-public class AnonymousCharacterAssert extends AnonymousObjectAssert implements ComparableAssert<Character> {
+public class AnonymousCharacterAssert extends AnonymousObjectAssert implements
+    ComparableAssert<Character> {
 
     public void isUpperCase(Character actual) {
         boolean result = Character.isUpperCase(actual);

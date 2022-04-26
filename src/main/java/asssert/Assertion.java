@@ -18,6 +18,10 @@ public class Assertion {
         return AssertsForType.assertThat(actual);
     }
 
+    public static AbstractCharacterAssert<?, Character> assertThat(char actual) {
+        return AssertsForType.assertThat(actual);
+    }
+
     public static AbstractIntegerAssert<?, Integer> assertThat(Integer actual) {
         return AssertsForType.assertThat(actual);
     }
@@ -25,6 +29,5 @@ public class Assertion {
     public static AbstractIntegerAssert<?, Integer> assertThat(int actual) {
         return AssertsForType.assertThat(actual);
     }
-
 
 }

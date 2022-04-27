@@ -2,7 +2,8 @@ package asssert.core.handler;
 
 import asssert.core.feature.ComparableAssert;
 
-public class AnonymousDoubleAssert extends AnonymousObjectAssert implements ComparableAssert<Double> {
+public class AnonymousDoubleAssert extends AnonymousObjectAssert implements
+    ComparableAssert<Double> {
 
     public void isInfinity(Double actual) {
         boolean result = Double.isInfinite(actual);

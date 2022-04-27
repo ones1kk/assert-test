@@ -1,9 +1,9 @@
 package asssert.core;
 
-import asssert.core.feature.ComparableAssert;
 import asssert.core.handler.AnonymousDoubleAssert;
 
-public class AbstractDoubleAssert<SELF extends AbstractDoubleAssert<SELF, Double>, ACTUAL > extends AbstractObjectAssert<SELF, Double> {
+public class AbstractDoubleAssert<SELF extends AbstractDoubleAssert<SELF, Double>, ACTUAL> extends
+    AbstractObjectAssert<SELF, Double> {
 
     protected AnonymousDoubleAssert doubleAssert;
 

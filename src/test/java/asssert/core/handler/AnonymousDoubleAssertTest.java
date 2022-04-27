@@ -1,9 +1,8 @@
 package asssert.core.handler;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import asssert.core.exception.AssertException;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -94,7 +93,6 @@ class AnonymousDoubleAssertTest {
         Double actual3 = -1.0;
         Double actual4 = 3 / 0.0;
         Double actual5 = 5 % 0.0;
-
 
         AnonymousDoubleAssert doubleAssert = new AnonymousDoubleAssert();
 

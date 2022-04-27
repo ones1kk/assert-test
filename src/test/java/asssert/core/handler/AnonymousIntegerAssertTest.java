@@ -1,6 +1,6 @@
 package asssert.core.handler;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import asssert.core.exception.AssertException;
 import org.junit.jupiter.api.DisplayName;
@@ -172,7 +172,6 @@ class AnonymousIntegerAssertTest {
         int actual6 = 2;
         int actual7 = 0;
         int actual8 = -1;
-
 
         AnonymousIntegerAssert integerAssert = new AnonymousIntegerAssert();
 

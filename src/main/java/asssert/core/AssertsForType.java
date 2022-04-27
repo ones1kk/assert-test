@@ -22,4 +22,12 @@ public class AssertsForType {
         return new IntegerAssert(IntegerAssert.class, actual);
     }
 
+    public static AbstractDoubleAssert<?, Double> assertThat(Double actual) {
+        return new DoubleAssert(DoubleAssert.class, actual);
+    }
+
+    public static AbstractDoubleAssert<?, Double> assertThat(double actual) {
+        return new DoubleAssert(DoubleAssert.class, actual);
+    }
+
 }

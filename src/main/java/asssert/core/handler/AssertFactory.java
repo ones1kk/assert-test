@@ -2,10 +2,6 @@ package asssert.core.handler;
 
 public final class AssertFactory {
 
-    public AnonymousObjectAssert createAssert(Object value) {
-        return new AnonymousObjectAssert();
-    }
-
     public AnonymousStringAssert createAssert(String value) {
         return new AnonymousStringAssert();
     }
@@ -20,6 +16,10 @@ public final class AssertFactory {
 
     public AnonymousIntegerAssert createAssert(Integer value) {
         return new AnonymousIntegerAssert();
+    }
+
+    public AnonymousDoubleAssert createAssert(Object value) {
+        return new AnonymousDoubleAssert();
     }
 
 }

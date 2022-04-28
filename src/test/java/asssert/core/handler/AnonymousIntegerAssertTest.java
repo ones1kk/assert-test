@@ -3,6 +3,8 @@ package asssert.core.handler;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import asssert.core.exception.AssertException;
+import asssert.core.feature.Offset;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -218,6 +220,44 @@ class AnonymousIntegerAssertTest {
         assertThrows(AssertException.class, () -> integerAssert.isOdd(actual6));
         assertThrows(AssertException.class, () -> integerAssert.isOdd(actual3));
         assertThrows(AssertException.class, () -> integerAssert.isOdd(actual7));
+
+    }
+
+    @Test
+    @DisplayName("NumberAssert test(success)")
+    void test7() {
+        Integer actual1 = 10;
+        Integer actual2 = 0;
+        Integer actual3 = -10;
+        Integer actual4 = 5;
+
+        AnonymousIntegerAssert integerAssert = new AnonymousIntegerAssert();
+
+        integerAssert.isNotZero(actual1);
+        integerAssert.isZero(actual2);
+        integerAssert.isNotPositive(actual3);
+        integerAssert.isNotNegative(actual1);
+        integerAssert.isCloseTo(actual4, actual1, Offset.offset(5));
+        integerAssert.isNotCloseTo(actual4, actual1, Offset.offset(2));
+    }
+
+    @Test
+    @DisplayName("NumberAssert test(fail)")
+    void test8() {
+        Integer actual1 = 10;
+        Integer actual2 = 0;
+        Integer actual3 = -10;
+        Integer actual4 = 5;
+
+        AnonymousIntegerAssert integerAssert = new AnonymousIntegerAssert();
+
+        Assertions.assertThrows(AssertException.class, () ->  integerAssert.isNotZero(actual2));
+        Assertions.assertThrows(AssertException.class, () ->  integerAssert.isZero(actual1));
+        Assertions.assertThrows(AssertException.class, () ->  integerAssert.isNotPositive(actual1));
+        Assertions.assertThrows(AssertException.class, () ->  integerAssert.isNotNegative(actual3));
+        Assertions.assertThrows(AssertException.class, () ->  integerAssert.isCloseTo(actual4, actual1, Offset.offset(2)));
+        Assertions.assertThrows(AssertException.class, () ->  integerAssert.isNotCloseTo(actual4, actual1, Offset.offset(9)));
+
 
     }
 }

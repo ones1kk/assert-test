@@ -20,15 +20,4 @@ public abstract class AbstractAssert extends TextDescription implements Interfac
             : this.defaultDescription;
     }
 
-    @Override
-    public void isNull(Object actual) {
-        boolean result = actual == null;
-        this.defaultDescription = actual + " is not null";
-        if (!result) {
-            String description = setDescription();
-            throw getException(setDefaultText(actual, null, description));
-        }
-    }
-
-
 }

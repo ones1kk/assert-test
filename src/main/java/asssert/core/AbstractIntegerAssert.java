@@ -1,5 +1,6 @@
 package asssert.core;
 
+import asssert.core.feature.Offset;
 import asssert.core.handler.AnonymousIntegerAssert;
 
 public class AbstractIntegerAssert<SELF extends AbstractIntegerAssert<SELF, Integer>, ACTUAL> extends
@@ -17,8 +18,38 @@ public class AbstractIntegerAssert<SELF extends AbstractIntegerAssert<SELF, Inte
         return self;
     }
 
+    public SELF isNotPositive() {
+        this.integerAssert.isNotPositive(actual);
+        return self;
+    }
+
     public SELF isNegative() {
         this.integerAssert.isNegative(actual);
+        return self;
+    }
+
+    public SELF isNotNegative() {
+        this.integerAssert.isNotNegative(actual);
+        return self;
+    }
+
+    public SELF isZero() {
+        this.integerAssert.isZero(actual);
+        return self;
+    }
+
+    public SELF isNotZero() {
+        this.integerAssert.isNotZero(actual);
+        return self;
+    }
+
+    public SELF isCloseTo(Integer expected, Offset<Integer> offset) {
+        this.integerAssert.isCloseTo(actual, expected, offset);
+        return self;
+    }
+
+    public SELF isNotCloseTo(Integer expected, Offset<Integer> offset) {
+        this.integerAssert.isNotCloseTo(actual, expected, offset);
         return self;
     }
 

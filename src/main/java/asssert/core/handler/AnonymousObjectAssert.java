@@ -5,6 +5,16 @@ import java.util.Objects;
 public class AnonymousObjectAssert extends AbstractAssert {
 
     @Override
+    public void isNull(Object actual) {
+        boolean result = actual == null;
+        this.defaultDescription = actual + " is not null";
+        if (!result) {
+            String description = setDescription();
+            throw getException(setDefaultText(actual, null, description));
+        }
+    }
+
+    @Override
     public void isNotNull(Object actual) {
         boolean result = actual != null;
         this.defaultDescription = actual + " is null";

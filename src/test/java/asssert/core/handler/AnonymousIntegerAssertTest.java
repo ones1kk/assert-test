@@ -251,12 +251,14 @@ class AnonymousIntegerAssertTest {
 
         AnonymousIntegerAssert integerAssert = new AnonymousIntegerAssert();
 
-        Assertions.assertThrows(AssertException.class, () ->  integerAssert.isNotZero(actual2));
-        Assertions.assertThrows(AssertException.class, () ->  integerAssert.isZero(actual1));
-        Assertions.assertThrows(AssertException.class, () ->  integerAssert.isNotPositive(actual1));
-        Assertions.assertThrows(AssertException.class, () ->  integerAssert.isNotNegative(actual3));
-        Assertions.assertThrows(AssertException.class, () ->  integerAssert.isCloseTo(actual4, actual1, Offset.offset(2)));
-        Assertions.assertThrows(AssertException.class, () ->  integerAssert.isNotCloseTo(actual4, actual1, Offset.offset(9)));
+        Assertions.assertThrows(AssertException.class, () -> integerAssert.isNotZero(actual2));
+        Assertions.assertThrows(AssertException.class, () -> integerAssert.isZero(actual1));
+        Assertions.assertThrows(AssertException.class, () -> integerAssert.isNotPositive(actual1));
+        Assertions.assertThrows(AssertException.class, () -> integerAssert.isNotNegative(actual3));
+        Assertions.assertThrows(AssertException.class,
+            () -> integerAssert.isCloseTo(actual4, actual1, Offset.offset(2)));
+        Assertions.assertThrows(AssertException.class,
+            () -> integerAssert.isNotCloseTo(actual4, actual1, Offset.offset(9)));
 
 
     }

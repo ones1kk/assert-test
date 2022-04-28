@@ -1,6 +1,5 @@
 package asssert.core.handler;
 
-import asssert.Assertion;
 import asssert.core.feature.ComparableAssert;
 import asssert.core.feature.NumberAssert;
 import asssert.core.feature.Offset;
@@ -98,25 +97,28 @@ public class AnonymousIntegerAssert extends AnonymousObjectAssert implements
 
     @Override
     public void isCloseTo(Integer actual, Integer expected, Offset<Integer> offset) {
-        int startResult = Integer.compare(actual, (expected-offset.value));
-        int endResult = Integer.compare(actual, (expected+offset.value));
+        int startResult = Integer.compare(actual, (expected - offset.value));
+        int endResult = Integer.compare(actual, (expected + offset.value));
 
         this.defaultDescription = actual + " is not close to " + expected;
-        if(startResult == -1 || endResult == 1) {
+        if (startResult == -1 || endResult == 1) {
             String description = setDescription();
-            throw getException(setDefaultText(actual, (expected-offset.value) + " ~ " + (expected+offset.value), description));
+            throw getException(setDefaultText(actual,
+                (expected - offset.value) + " ~ " + (expected + offset.value), description));
         }
     }
 
     @Override
     public void isNotCloseTo(Integer actual, Integer expected, Offset<Integer> offset) {
-        int startResult = Integer.compare(actual, (expected-offset.value));
-        int endResult = Integer.compare(actual, (expected+offset.value));
+        int startResult = Integer.compare(actual, (expected - offset.value));
+        int endResult = Integer.compare(actual, (expected + offset.value));
 
         this.defaultDescription = actual + " is close to " + expected;
-        if(startResult == 1 || endResult == 1) {
+        if (startResult == 1 || endResult == 1) {
             String description = setDescription();
-            throw getException(setDefaultText(actual, (expected-offset.value) + " > " + actual + " or "+ (expected+offset.value) + " < " + actual, description));
+            throw getException(setDefaultText(actual,
+                (expected - offset.value) + " > " + actual + " or " + (expected + offset.value)
+                    + " < " + actual, description));
         }
     }
 

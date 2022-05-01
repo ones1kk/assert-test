@@ -30,4 +30,12 @@ public class AssertsForType {
         return new DoubleAssert(DoubleAssert.class, actual);
     }
 
+    public static AbstractFloatAssert<?, Float> assertThat(Float actual) {
+        return new FloatAssert(FloatAssert.class, actual);
+    }
+
+    public static AbstractFloatAssert<?, Float> assertThat(float actual) {
+        return new FloatAssert(FloatAssert.class, actual);
+    }
+
 }

@@ -2,13 +2,14 @@ package asssert;
 
 import asssert.core.AbstractCharacterAssert;
 import asssert.core.AbstractDoubleAssert;
+import asssert.core.AbstractFloatAssert;
 import asssert.core.AbstractIntegerAssert;
 import asssert.core.AbstractStringAssert;
 import asssert.core.AssertsForType;
 
-public class Assertion {
+public final class Assertion {
 
-    protected Assertion() {
+    private Assertion() {
     }
 
     public static AbstractStringAssert<?> assertThat(String actual) {
@@ -36,6 +37,13 @@ public class Assertion {
     }
 
     public static AbstractDoubleAssert<?, Double> assertThat(double actual) {
+        return AssertsForType.assertThat(actual);
+    }
+
+    public static AbstractFloatAssert<?, Float> assertThat(Float actual) {
+        return AssertsForType.assertThat(actual);
+    }
+    public static AbstractFloatAssert<?, Float> assertThat(float actual) {
         return AssertsForType.assertThat(actual);
     }
 

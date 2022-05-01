@@ -46,4 +46,12 @@ public class AssertsForType {
         return new LongAssert(LongAssert.class, actual);
     }
 
+    public static AbstractByteAssert<?, Byte> assertThat(Byte actual) {
+        return new ByteAssert(ByteAssert.class, actual);
+    }
+
+    public static AbstractByteAssert<?, Byte> assertThat(byte actual) {
+        return new ByteAssert(ByteAssert.class, actual);
+    }
+
 }

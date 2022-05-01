@@ -10,11 +10,19 @@ public final class AssertFactory {
         return new AnonymousCharacterAssert();
     }
 
+    public AnonymousCharacterAssert createAssert(char value) {
+        return new AnonymousCharacterAssert();
+    }
+
     public AnonymousCharSequenceAssert createAssert(CharSequence value) {
         return new AnonymousCharSequenceAssert();
     }
 
     public AnonymousIntegerAssert createAssert(Integer value) {
+        return new AnonymousIntegerAssert();
+    }
+
+    public AnonymousIntegerAssert createAssert(int value) {
         return new AnonymousIntegerAssert();
     }
 
@@ -26,8 +34,24 @@ public final class AssertFactory {
         return new AnonymousFloatAssert();
     }
 
+    public AnonymousFloatAssert createAssert(float value) {
+        return new AnonymousFloatAssert();
+    }
+
     public AnonymousLongAssert createAssert(Long value) {
         return new AnonymousLongAssert();
+    }
+
+    public AnonymousLongAssert createAssert(long value) {
+        return new AnonymousLongAssert();
+    }
+
+    public AnonymousByteAssert createAssert(Byte value) {
+        return new AnonymousByteAssert();
+    }
+
+    public AnonymousByteAssert createAssert(byte value) {
+        return new AnonymousByteAssert();
     }
 
 }

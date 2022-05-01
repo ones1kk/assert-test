@@ -1,5 +1,6 @@
 package asssert;
 
+import asssert.core.AbstractByteAssert;
 import asssert.core.AbstractCharacterAssert;
 import asssert.core.AbstractDoubleAssert;
 import asssert.core.AbstractFloatAssert;
@@ -54,6 +55,14 @@ public final class Assertion {
     }
 
     public static AbstractLongAssert<?, Long> assertThat(long actual) {
+        return AssertsForType.assertThat(actual);
+    }
+
+    public static AbstractByteAssert<?, Byte> assertThat(Byte actual) {
+        return AssertsForType.assertThat(actual);
+    }
+
+    public static AbstractByteAssert<?, Byte> assertThat(byte actual) {
         return AssertsForType.assertThat(actual);
     }
 

@@ -1,6 +1,6 @@
 package asssert.core.handler;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import asssert.core.exception.AssertException;
 import asssert.core.feature.Offset;
@@ -231,8 +231,8 @@ class AnonymousShortAssertTest {
         shortAssert.isZero(actual2);
         shortAssert.isNotPositive(actual3);
         shortAssert.isNotNegative(actual1);
-        shortAssert.isCloseTo(actual4, actual1, Offset.offset((short)5));
-        shortAssert.isNotCloseTo(actual4, actual1, Offset.offset((short)2));
+        shortAssert.isCloseTo(actual4, actual1, Offset.offset((short) 5));
+        shortAssert.isNotCloseTo(actual4, actual1, Offset.offset((short) 2));
     }
 
     @Test
@@ -250,9 +250,9 @@ class AnonymousShortAssertTest {
         Assertions.assertThrows(AssertException.class, () -> shortAssert.isNotPositive(actual1));
         Assertions.assertThrows(AssertException.class, () -> shortAssert.isNotNegative(actual3));
         Assertions.assertThrows(AssertException.class,
-            () -> shortAssert.isCloseTo(actual4, actual1, Offset.offset((short)2)));
+            () -> shortAssert.isCloseTo(actual4, actual1, Offset.offset((short) 2)));
         Assertions.assertThrows(AssertException.class,
-            () -> shortAssert.isNotCloseTo(actual4, actual1, Offset.offset((short)9)));
+            () -> shortAssert.isNotCloseTo(actual4, actual1, Offset.offset((short) 9)));
 
     }
 }

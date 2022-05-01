@@ -116,7 +116,7 @@ public class AnonymousShortAssert extends AnonymousObjectAssert implements Compa
         if (startResult >= 0 || endResult >= 0) {
             String description = setDescription();
             throw getException(setDefaultText(actual,
-                  "start >= " + actual + " or end <= " + actual, description));
+                "start >= " + actual + " or end <= " + actual, description));
         }
     }
 

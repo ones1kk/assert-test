@@ -3,7 +3,8 @@ package asssert.core;
 import asssert.core.feature.Offset;
 import asssert.core.handler.AnonymousByteAssert;
 
-public class AbstractByteAssert<SELF extends AbstractByteAssert<SELF, Byte>, ACTUAL> extends AbstractObjectAssert<SELF, Byte>  {
+public class AbstractByteAssert<SELF extends AbstractByteAssert<SELF, Byte>, ACTUAL> extends
+    AbstractObjectAssert<SELF, Byte> {
 
     protected AnonymousByteAssert byteAssert;
 

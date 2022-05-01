@@ -1,5 +1,6 @@
 package asssert.core;
 
+import asssert.core.feature.Offset;
 import asssert.core.handler.AnonymousDoubleAssert;
 
 public class AbstractDoubleAssert<SELF extends AbstractDoubleAssert<SELF, Double>, ACTUAL> extends
@@ -10,6 +11,46 @@ public class AbstractDoubleAssert<SELF extends AbstractDoubleAssert<SELF, Double
     protected AbstractDoubleAssert(Class<?> self, Double actual) {
         super(self, actual);
         this.doubleAssert = assertFactory.createAssert(actual);
+    }
+
+    public SELF isPositive() {
+        this.doubleAssert.isPositive(actual);
+        return self;
+    }
+
+    public SELF isNotPositive() {
+        this.doubleAssert.isNotPositive(actual);
+        return self;
+    }
+
+    public SELF isNegative() {
+        this.doubleAssert.isNegative(actual);
+        return self;
+    }
+
+    public SELF isNotNegative() {
+        this.doubleAssert.isNotNegative(actual);
+        return self;
+    }
+
+    public SELF isZero() {
+        this.doubleAssert.isZero(actual);
+        return self;
+    }
+
+    public SELF isNotZero() {
+        this.doubleAssert.isNotZero(actual);
+        return self;
+    }
+
+    public SELF isCloseTo(Double expected, Offset<Double> offset) {
+        this.doubleAssert.isCloseTo(actual, expected, offset);
+        return self;
+    }
+
+    public SELF isNotCloseTo(Double expected, Offset<Double> offset) {
+        this.doubleAssert.isNotCloseTo(actual, expected, offset);
+        return self;
     }
 
     public SELF isInfinity() {
@@ -24,16 +65,6 @@ public class AbstractDoubleAssert<SELF extends AbstractDoubleAssert<SELF, Double
 
     public SELF isNaN() {
         this.doubleAssert.isNaN(actual);
-        return self;
-    }
-
-    public SELF isPositive() {
-        this.doubleAssert.isPositive(actual);
-        return self;
-    }
-
-    public SELF isNegative() {
-        this.doubleAssert.isNegative(actual);
         return self;
     }
 

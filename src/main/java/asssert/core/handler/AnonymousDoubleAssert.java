@@ -1,9 +1,98 @@
 package asssert.core.handler;
 
 import asssert.core.feature.ComparableAssert;
+import asssert.core.feature.NumberAssert;
+import asssert.core.feature.Offset;
 
 public class AnonymousDoubleAssert extends AnonymousObjectAssert implements
-    ComparableAssert<Double> {
+    ComparableAssert<Double>, NumberAssert<Double> {
+
+    @Override
+    public void isPositive(Double actual) {
+        boolean result = actual > 0;
+        this.defaultDescription = actual + " is not positive";
+        if (!result) {
+            String description = setDescription();
+            throw getException(setDefaultText(actual, "Positive", description));
+        }
+    }
+
+    @Override
+    public void isNotPositive(Double actual) {
+        boolean result = actual < 0;
+        this.defaultDescription = actual + " is positive";
+        if (!result) {
+            String description = setDescription();
+            throw getException(setDefaultText(actual, "Not Positive", description));
+        }
+    }
+
+    @Override
+    public void isNegative(Double actual) {
+        boolean result = actual < 0;
+        this.defaultDescription = actual + " is not negative";
+        if (!result) {
+            String description = setDescription();
+            throw getException(setDefaultText(actual, "Negative", description));
+        }
+    }
+
+    @Override
+    public void isNotNegative(Double actual) {
+        boolean result = actual > 0;
+        this.defaultDescription = actual + " is negative";
+        if (!result) {
+            String description = setDescription();
+            throw getException(setDefaultText(actual, "Not Negative", description));
+        }
+    }
+
+    @Override
+    public void isZero(Double actual) {
+        boolean result = actual == 0;
+        this.defaultDescription = actual + " is not zero";
+        if (!result) {
+            String description = setDescription();
+            throw getException(setDefaultText(actual, "Zero", description));
+        }
+    }
+
+    @Override
+    public void isNotZero(Double actual) {
+        boolean result = actual != 0;
+        this.defaultDescription = actual + " is zero";
+        if (!result) {
+            String description = setDescription();
+            throw getException(setDefaultText(actual, "Not Zero", description));
+        }
+    }
+
+    @Override
+    public void isCloseTo(Double actual, Double expected, Offset<Double> offset) {
+        int startResult = Double.compare(actual, (expected - offset.value));
+        int endResult = Double.compare(actual, (expected + offset.value));
+
+        this.defaultDescription = actual + " is not close to " + expected;
+        if (startResult == -1 || endResult == 1) {
+            String description = setDescription();
+            throw getException(setDefaultText(actual,
+                (expected - offset.value) + " ~ " + (expected + offset.value), description));
+        }
+    }
+
+    @Override
+    public void isNotCloseTo(Double actual, Double expected, Offset<Double> offset) {
+        int startResult = Double.compare(actual, (expected - offset.value));
+        int endResult = Double.compare(actual, (expected + offset.value));
+
+        this.defaultDescription = actual + " is close to " + expected;
+        if (startResult == 1 || endResult == 1) {
+            String description = setDescription();
+            throw getException(setDefaultText(actual,
+                (expected - offset.value) + " > " + actual + " or " + (expected + offset.value)
+                    + " < " + actual, description));
+        }
+    }
 
     public void isInfinity(Double actual) {
         boolean result = Double.isInfinite(actual);
@@ -29,24 +118,6 @@ public class AnonymousDoubleAssert extends AnonymousObjectAssert implements
         if (!result) {
             String description = setDescription();
             throw getException(setDefaultText(actual, "Number", description));
-        }
-    }
-
-    public void isPositive(Double actual) {
-        boolean result = actual > 0;
-        this.defaultDescription = actual + " is not positive";
-        if (!result) {
-            String description = setDescription();
-            throw getException(setDefaultText(actual, "Positive", description));
-        }
-    }
-
-    public void isNegative(Double actual) {
-        boolean result = actual < 0;
-        this.defaultDescription = actual + " is not negative";
-        if (!result) {
-            String description = setDescription();
-            throw getException(setDefaultText(actual, "Negative", description));
         }
     }
 

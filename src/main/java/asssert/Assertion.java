@@ -6,6 +6,7 @@ import asssert.core.AbstractDoubleAssert;
 import asssert.core.AbstractFloatAssert;
 import asssert.core.AbstractIntegerAssert;
 import asssert.core.AbstractLongAssert;
+import asssert.core.AbstractShortAssert;
 import asssert.core.AbstractStringAssert;
 import asssert.core.AssertsForType;
 
@@ -63,6 +64,14 @@ public final class Assertion {
     }
 
     public static AbstractByteAssert<?, Byte> assertThat(byte actual) {
+        return AssertsForType.assertThat(actual);
+    }
+
+    public static AbstractShortAssert<?, Short> assertThat(Short actual) {
+        return AssertsForType.assertThat(actual);
+    }
+
+    public static AbstractShortAssert<?, Short> assertThat(short actual) {
         return AssertsForType.assertThat(actual);
     }
 

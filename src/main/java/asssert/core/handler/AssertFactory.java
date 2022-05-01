@@ -54,4 +54,12 @@ public final class AssertFactory {
         return new AnonymousByteAssert();
     }
 
+    public AnonymousShortAssert createAssert(Short value) {
+        return new AnonymousShortAssert();
+    }
+
+    public AnonymousShortAssert createAssert(short value) {
+        return new AnonymousShortAssert();
+    }
+
 }

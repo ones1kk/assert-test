@@ -54,4 +54,12 @@ public class AssertsForType {
         return new ByteAssert(ByteAssert.class, actual);
     }
 
+    public static AbstractShortAssert<?, Short> assertThat(Short actual) {
+        return new ShortAssert(ShortAssert.class, actual);
+    }
+
+    public static AbstractShortAssert<?, Short> assertThat(short actual) {
+        return new ShortAssert(ShortAssert.class, actual);
+    }
+
 }

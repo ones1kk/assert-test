@@ -38,4 +38,12 @@ public class AssertsForType {
         return new FloatAssert(FloatAssert.class, actual);
     }
 
+    public static AbstractLongAssert<?, Long> assertThat(Long actual) {
+        return new LongAssert(LongAssert.class, actual);
+    }
+
+    public static AbstractLongAssert<?, Long> assertThat(long actual) {
+        return new LongAssert(LongAssert.class, actual);
+    }
+
 }

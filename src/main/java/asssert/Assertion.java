@@ -4,6 +4,7 @@ import asssert.core.AbstractCharacterAssert;
 import asssert.core.AbstractDoubleAssert;
 import asssert.core.AbstractFloatAssert;
 import asssert.core.AbstractIntegerAssert;
+import asssert.core.AbstractLongAssert;
 import asssert.core.AbstractStringAssert;
 import asssert.core.AssertsForType;
 
@@ -43,7 +44,16 @@ public final class Assertion {
     public static AbstractFloatAssert<?, Float> assertThat(Float actual) {
         return AssertsForType.assertThat(actual);
     }
+
     public static AbstractFloatAssert<?, Float> assertThat(float actual) {
+        return AssertsForType.assertThat(actual);
+    }
+
+    public static AbstractLongAssert<?, Long> assertThat(Long actual) {
+        return AssertsForType.assertThat(actual);
+    }
+
+    public static AbstractLongAssert<?, Long> assertThat(long actual) {
         return AssertsForType.assertThat(actual);
     }
 

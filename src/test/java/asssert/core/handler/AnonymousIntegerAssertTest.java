@@ -260,6 +260,5 @@ class AnonymousIntegerAssertTest {
         Assertions.assertThrows(AssertException.class,
             () -> integerAssert.isNotCloseTo(actual4, actual1, Offset.offset(9)));
 
-
     }
 }

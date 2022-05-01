@@ -1,6 +1,6 @@
 package asssert.core.handler;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import asssert.core.exception.AssertException;
 import asssert.core.feature.Offset;

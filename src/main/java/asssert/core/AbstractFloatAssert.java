@@ -3,7 +3,8 @@ package asssert.core;
 import asssert.core.feature.Offset;
 import asssert.core.handler.AnonymousFloatAssert;
 
-public class AbstractFloatAssert<SELF extends AbstractFloatAssert<SELF, Float>, ACTUAL> extends  AbstractObjectAssert<SELF, Float>{
+public class AbstractFloatAssert<SELF extends AbstractFloatAssert<SELF, Float>, ACTUAL> extends
+    AbstractObjectAssert<SELF, Float> {
 
     protected AnonymousFloatAssert floatAssert;
 

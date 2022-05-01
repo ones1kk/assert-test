@@ -3,7 +3,8 @@ package asssert.core;
 import asssert.core.feature.Offset;
 import asssert.core.handler.AnonymousLongAssert;
 
-public class AbstractLongAssert<SELF extends AbstractLongAssert<SELF, Long>, ACTUAL> extends AbstractObjectAssert<SELF, Long> {
+public class AbstractLongAssert<SELF extends AbstractLongAssert<SELF, Long>, ACTUAL> extends
+    AbstractObjectAssert<SELF, Long> {
 
     protected AnonymousLongAssert longAssert;
 

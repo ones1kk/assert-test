@@ -9,6 +9,7 @@ public class AbstractLongAssert<SELF extends AbstractLongAssert<SELF, Long>, ACT
 
     protected AbstractLongAssert(Class<?> self, Long aLong) {
         super(self, aLong);
+        this.longAssert = assertFactory.createAssert(actual);
     }
 
     public SELF isPositive() {

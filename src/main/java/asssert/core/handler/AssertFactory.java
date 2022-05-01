@@ -22,4 +22,12 @@ public final class AssertFactory {
         return new AnonymousDoubleAssert();
     }
 
+    public AnonymousFloatAssert createAssert(Float value) {
+        return new AnonymousFloatAssert();
+    }
+
+    public AnonymousLongAssert createAssert(Long value) {
+        return new AnonymousLongAssert();
+    }
+
 }

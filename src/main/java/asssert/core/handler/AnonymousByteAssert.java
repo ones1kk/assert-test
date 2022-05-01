@@ -30,7 +30,7 @@ public class AnonymousByteAssert extends AnonymousObjectAssert implements Compar
     public void isLessThan(Byte actual, Byte expected) {
         int result = Byte.compare(actual, expected);
         this.defaultDescription = actual + " is not less than " + expected;
-        if (result != 0) {
+        if (result >= 0) {
             String description = setDescription();
             throw getException(setDefaultText(actual, expected, description));
         }
@@ -112,13 +112,11 @@ public class AnonymousByteAssert extends AnonymousObjectAssert implements Compar
     public void isNotCloseTo(Byte actual, Byte expected, Offset<Byte> offset) {
         int startResult = Byte.compare(actual, (byte) (expected - offset.value));
         int endResult = Byte.compare(actual, (byte) (expected + offset.value));
-
         this.defaultDescription = actual + " is close to " + expected;
-        if (startResult > 0 || endResult < 0) {
+        if (startResult >= 0 || endResult >= 0) {
             String description = setDescription();
             throw getException(setDefaultText(actual,
-                (expected - offset.value) + " > " + actual + " or " + (expected + offset.value)
-                    + " < " + actual, description));
+                "start >= " + actual + " or end <= " + actual, description));
         }
     }
 
@@ -136,7 +134,7 @@ public class AnonymousByteAssert extends AnonymousObjectAssert implements Compar
     public void isGreaterThan(Byte actual, Byte expected) {
         int result = Byte.compare(actual, expected);
         this.defaultDescription = actual + " is not greater than " + expected;
-        if (result < 0) {
+        if (result <= 0) {
             String description = setDescription();
             throw getException(setDefaultText(actual, expected, description));
         }
@@ -146,7 +144,7 @@ public class AnonymousByteAssert extends AnonymousObjectAssert implements Compar
     public void isGreaterThanOrEqualTo(Byte actual, Byte expected) {
         int result = Byte.compare(actual, expected);
         this.defaultDescription = actual + " is not greater than or Equal to " + expected;
-        if (result > 0) {
+        if (result < 0) {
             String description = setDescription();
             throw getException(setDefaultText(actual, expected, description));
         }

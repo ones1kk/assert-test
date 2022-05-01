@@ -29,7 +29,7 @@ public class AnonymousLongAssert extends AnonymousObjectAssert implements
     public void isLessThan(Long actual, Long expected) {
         int result = Long.compare(actual, expected);
         this.defaultDescription = actual + " is not less than " + expected;
-        if (result != -1) {
+        if (result != -1 || result == 0) {
             String description = setDescription();
             throw getException(setDefaultText(actual, expected, description));
         }
@@ -136,7 +136,7 @@ public class AnonymousLongAssert extends AnonymousObjectAssert implements
     public void isGreaterThan(Long actual, Long expected) {
         int result = Long.compare(actual, expected);
         this.defaultDescription = actual + " is not greater than " + expected;
-        if (result != 1) {
+        if (result != 1 || result == 0) {
             String description = setDescription();
             throw getException(setDefaultText(actual, expected, description));
         }

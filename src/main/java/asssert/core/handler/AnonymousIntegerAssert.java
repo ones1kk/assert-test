@@ -29,7 +29,7 @@ public class AnonymousIntegerAssert extends AnonymousObjectAssert implements
     public void isLessThan(Integer actual, Integer expected) {
         int result = Integer.compare(actual, expected);
         this.defaultDescription = actual + " is not less than " + expected;
-        if (result != -1) {
+        if (result != -1 || result == 0) {
             String description = setDescription();
             throw getException(setDefaultText(actual, expected, description));
         }
@@ -136,7 +136,7 @@ public class AnonymousIntegerAssert extends AnonymousObjectAssert implements
     public void isGreaterThan(Integer actual, Integer expected) {
         int result = Integer.compare(actual, expected);
         this.defaultDescription = actual + " is not greater than " + expected;
-        if (result != 1) {
+        if (result != 1 || result == 0) {
             String description = setDescription();
             throw getException(setDefaultText(actual, expected, description));
         }

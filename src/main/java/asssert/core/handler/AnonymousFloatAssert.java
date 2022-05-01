@@ -125,7 +125,7 @@ public class AnonymousFloatAssert extends AnonymousObjectAssert implements
     public void isLessThan(Float actual, Float expected) {
         int result = actual.compareTo(expected);
         this.defaultDescription = actual + " is not less than " + expected;
-        if (result != -1) {
+        if (result != -1 || result == 0) {
             String description = setDescription();
             throw getException(setDefaultText(actual, expected, description));
         }
@@ -145,7 +145,7 @@ public class AnonymousFloatAssert extends AnonymousObjectAssert implements
     public void isGreaterThan(Float actual, Float expected) {
         int result = actual.compareTo(expected);
         this.defaultDescription = actual + " is not greater than " + expected;
-        if (result != 1) {
+        if (result != 1 || result == 0) {
             String description = setDescription();
             throw getException(setDefaultText(actual, expected, description));
         }

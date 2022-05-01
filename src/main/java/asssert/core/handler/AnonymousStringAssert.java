@@ -9,7 +9,7 @@ public class AnonymousStringAssert extends AnonymousCharSequenceAssert implement
     public void isLessThan(String actual, String expected) {
         int result = actual.compareTo(expected);
         this.defaultDescription = actual + " is not less than " + expected;
-        if (result != -1) {
+        if (result != -1 || result == 0) {
             String description = setDescription();
             throw getException(setDefaultText(actual, expected, description));
         }
@@ -29,7 +29,7 @@ public class AnonymousStringAssert extends AnonymousCharSequenceAssert implement
     public void isGreaterThan(String actual, String expected) {
         int result = actual.compareTo(expected);
         this.defaultDescription = actual + " is not greater than " + expected;
-        if (result != 1) {
+        if (result != 1 || result == 0) {
             String description = setDescription();
             throw getException(setDefaultText(actual, expected, description));
         }

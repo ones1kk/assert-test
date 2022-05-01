@@ -3,6 +3,8 @@ package asssert.core.handler;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import asssert.core.exception.AssertException;
+import asssert.core.feature.Offset;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -120,6 +122,45 @@ class AnonymousDoubleAssertTest {
         assertThrows(AssertException.class, () -> doubleAssert.isFinite(actual4));
         assertThrows(AssertException.class, () -> doubleAssert.isInfinity(actual4));
         assertThrows(AssertException.class, () -> doubleAssert.isNaN(actual3));
+
+    }
+
+    @Test
+    @DisplayName("NumberAssert test(success)")
+    void test5() {
+        Double actual1 = 10.0;
+        Double actual2 = 0.0;
+        Double actual3 = -10.0;
+        Double actual4 = 5.0;
+
+        AnonymousDoubleAssert doubleAssert = new AnonymousDoubleAssert();
+
+        doubleAssert.isNotZero(actual1);
+        doubleAssert.isZero(actual2);
+        doubleAssert.isNotPositive(actual3);
+        doubleAssert.isNotNegative(actual1);
+        doubleAssert.isCloseTo(actual4, actual1, Offset.offset(5.0));
+        doubleAssert.isNotCloseTo(actual4, actual1, Offset.offset(2.0));
+    }
+
+    @Test
+    @DisplayName("NumberAssert test(fail)")
+    void test6() {
+        Double actual1 = 10.0;
+        Double actual2 = 0.0;
+        Double actual3 = -10.0;
+        Double actual4 = 5.0;
+
+        AnonymousDoubleAssert doubleAssert = new AnonymousDoubleAssert();
+
+        Assertions.assertThrows(AssertException.class, () -> doubleAssert.isNotZero(actual2));
+        Assertions.assertThrows(AssertException.class, () -> doubleAssert.isZero(actual1));
+        Assertions.assertThrows(AssertException.class, () -> doubleAssert.isNotPositive(actual1));
+        Assertions.assertThrows(AssertException.class, () -> doubleAssert.isNotNegative(actual3));
+        Assertions.assertThrows(AssertException.class,
+            () -> doubleAssert.isCloseTo(actual4, actual1, Offset.offset(2.0)));
+        Assertions.assertThrows(AssertException.class,
+            () -> doubleAssert.isNotCloseTo(actual4, actual1, Offset.offset(9.0)));
 
     }
 

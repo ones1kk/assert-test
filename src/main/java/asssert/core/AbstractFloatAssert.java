@@ -8,8 +8,8 @@ public class AbstractFloatAssert<SELF extends AbstractFloatAssert<SELF, Float>, 
 
     protected AnonymousFloatAssert floatAssert;
 
-    protected AbstractFloatAssert(Class<?> self, Float aFloat) {
-        super(self, aFloat);
+    protected AbstractFloatAssert(Class<?> self, Float actual) {
+        super(self, actual);
         this.floatAssert = assertFactory.createAssert(actual);
     }
 

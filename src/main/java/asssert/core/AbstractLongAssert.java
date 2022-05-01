@@ -8,8 +8,8 @@ public class AbstractLongAssert<SELF extends AbstractLongAssert<SELF, Long>, ACT
 
     protected AnonymousLongAssert longAssert;
 
-    protected AbstractLongAssert(Class<?> self, Long aLong) {
-        super(self, aLong);
+    protected AbstractLongAssert(Class<?> self, Long actual) {
+        super(self, actual);
         this.longAssert = assertFactory.createAssert(actual);
     }
 

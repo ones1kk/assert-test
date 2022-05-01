@@ -1,15 +1,15 @@
 package asssert.core.feature;
 
-public interface ComparableAssert<ELEMENT> {
+public interface ComparableAssert<ACTUAL> {
 
-    void isLessThan(ELEMENT actual, ELEMENT expected);
+    void isLessThan(ACTUAL actual, ACTUAL expected);
 
-    void isLessThanOrEqualTo(ELEMENT actual, ELEMENT expected);
+    void isLessThanOrEqualTo(ACTUAL actual, ACTUAL expected);
 
-    void isGreaterThan(ELEMENT actual, ELEMENT expected);
+    void isGreaterThan(ACTUAL actual, ACTUAL expected);
 
-    void isGreaterThanOrEqualTo(ELEMENT actual, ELEMENT expected);
+    void isGreaterThanOrEqualTo(ACTUAL actual, ACTUAL expected);
 
-    void isBetween(ELEMENT actual, ELEMENT start, ELEMENT end);
+    void isBetween(ACTUAL actual, ACTUAL start, ACTUAL end);
 
 }

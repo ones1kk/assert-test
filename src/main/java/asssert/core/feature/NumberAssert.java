@@ -1,21 +1,21 @@
 package asssert.core.feature;
 
-public interface NumberAssert<ELEMENT extends Number> {
+public interface NumberAssert<ACTUAL extends Number> {
 
-    void isPositive(ELEMENT actual);
+    void isPositive(ACTUAL actual);
 
-    void isNotPositive(ELEMENT actual);
+    void isNotPositive(ACTUAL actual);
 
-    void isNegative(ELEMENT actual);
+    void isNegative(ACTUAL actual);
 
-    void isNotNegative(ELEMENT actual);
+    void isNotNegative(ACTUAL actual);
 
-    void isZero(ELEMENT actual);
+    void isZero(ACTUAL actual);
 
-    void isNotZero(ELEMENT actual);
+    void isNotZero(ACTUAL actual);
 
-    void isCloseTo(ELEMENT actual, ELEMENT expected, Offset<ELEMENT> offset);
+    void isCloseTo(ACTUAL actual, ACTUAL expected, Offset<ACTUAL> offset);
 
-    void isNotCloseTo(ELEMENT actual, ELEMENT expected, Offset<ELEMENT> offset);
+    void isNotCloseTo(ACTUAL actual, ACTUAL expected, Offset<ACTUAL> offset);
 
 }

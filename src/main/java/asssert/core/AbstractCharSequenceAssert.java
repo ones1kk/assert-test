@@ -13,12 +13,27 @@ public abstract class AbstractCharSequenceAssert<SELF extends AbstractCharSequen
     }
 
     public SELF isEmpty() {
-        this.charSequenceAssert.isEmpty((String) actual);
+        this.charSequenceAssert.isEmpty(actual);
         return self;
     }
 
     public SELF isNotEmpty() {
-        this.charSequenceAssert.isNotEmpty((String) actual);
+        this.charSequenceAssert.isNotEmpty(actual);
+        return self;
+    }
+
+    public SELF isBlank() {
+        this.charSequenceAssert.isBlank(actual);
+        return self;
+    }
+
+    public SELF isNotBlank() {
+        this.charSequenceAssert.isNotBlank(actual);
+        return self;
+    }
+
+    public SELF isEqualToIgnoreCase(CharSequence expected) {
+        this.charSequenceAssert.isEqualToIgnoreCase(actual, expected);
         return self;
     }
 

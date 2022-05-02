@@ -29,7 +29,7 @@ public class AnonymousShortAssert extends AnonymousObjectAssert implements Compa
     @Override
     public void isLessThan(Short actual, Short expected) {
         int result = Short.compare(actual, expected);
-      this.defaultDescription = String.format("%s is not less than %s", actual, expected);
+        this.defaultDescription = String.format("%s is not less than %s", actual, expected);
         if (result >= 0) {
             String description = setDescription();
             throw getException(setDefaultText(actual, expected, description));
@@ -39,7 +39,7 @@ public class AnonymousShortAssert extends AnonymousObjectAssert implements Compa
     @Override
     public void isPositive(Short actual) {
         boolean result = actual > 0;
-       this.defaultDescription = String.format("%s is not positive", actual);
+        this.defaultDescription = String.format("%s is not positive", actual);
         if (!result) {
             String description = setDescription();
             throw getException(setDefaultText(actual, "Positive", description));
@@ -123,7 +123,9 @@ public class AnonymousShortAssert extends AnonymousObjectAssert implements Compa
     @Override
     public void isLessThanOrEqualTo(Short actual, Short expected) {
         int result = Short.compare(actual, expected);
-       this.defaultDescription = String.format("%s is not less than or equal to %s", actual, expected);;
+        this.defaultDescription = String.format("%s is not less than or equal to %s", actual,
+            expected);
+        ;
         if (result > 0) {
             String description = setDescription();
             throw getException(setDefaultText(actual, expected, description));
@@ -133,7 +135,8 @@ public class AnonymousShortAssert extends AnonymousObjectAssert implements Compa
     @Override
     public void isGreaterThan(Short actual, Short expected) {
         int result = Short.compare(actual, expected);
-        this.defaultDescription = String.format("%s is not greater than %s", actual, expected);;
+        this.defaultDescription = String.format("%s is not greater than %s", actual, expected);
+        ;
         if (result <= 0) {
             String description = setDescription();
             throw getException(setDefaultText(actual, expected, description));
@@ -143,7 +146,8 @@ public class AnonymousShortAssert extends AnonymousObjectAssert implements Compa
     @Override
     public void isGreaterThanOrEqualTo(Short actual, Short expected) {
         int result = Short.compare(actual, expected);
-        this.defaultDescription = String.format("%s is not greater than or Equal to %s", actual, expected);
+        this.defaultDescription = String.format("%s is not greater than or Equal to %s", actual,
+            expected);
         if (result < 0) {
             String description = setDescription();
             throw getException(setDefaultText(actual, expected, description));
@@ -154,7 +158,8 @@ public class AnonymousShortAssert extends AnonymousObjectAssert implements Compa
     public void isBetween(Short actual, Short start, Short end) {
         if ((Short.compare(actual, start) < 0) || ((
             Short.compare(actual, end) > 0))) {
-            this.defaultDescription = String.format("%s is not between %s and %s", actual, start, end);
+            this.defaultDescription = String.format("%s is not between %s and %s", actual, start,
+                end);
             String description = setDescription();
             throw getException(setDefaultText(actual, start + " ~ " + end, description));
         }

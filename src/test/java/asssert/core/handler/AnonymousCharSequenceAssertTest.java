@@ -34,10 +34,13 @@ class AnonymousCharSequenceAssertTest {
         AnonymousCharSequenceAssert charSequenceAssert = new AnonymousCharSequenceAssert();
 
         Assertions.assertThrows(AssertException.class, () -> charSequenceAssert.isEmpty(actual1));
-        Assertions.assertThrows(AssertException.class, () -> charSequenceAssert.isNotEmpty(actual3));
+        Assertions.assertThrows(AssertException.class,
+            () -> charSequenceAssert.isNotEmpty(actual3));
         Assertions.assertThrows(AssertException.class, () -> charSequenceAssert.isBlank(actual1));
-        Assertions.assertThrows(AssertException.class, () -> charSequenceAssert.isNotBlank(actual2));
-        Assertions.assertThrows(AssertException.class, () -> charSequenceAssert.isEqualToIgnoreCase(actual1, "world"));
+        Assertions.assertThrows(AssertException.class,
+            () -> charSequenceAssert.isNotBlank(actual2));
+        Assertions.assertThrows(AssertException.class,
+            () -> charSequenceAssert.isEqualToIgnoreCase(actual1, "world"));
 
     }
 }

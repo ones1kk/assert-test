@@ -37,5 +37,4 @@ public abstract class AbstractCharSequenceAssert<SELF extends AbstractCharSequen
         return self;
     }
 
-
 }

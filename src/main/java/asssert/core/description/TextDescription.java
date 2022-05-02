@@ -9,7 +9,8 @@ public class TextDescription extends Description {
             return String.format("%n%sExpected    : %s %n%sActual      : %s%n%sDescription : %s",
                 WHITE, RED + expected, WHITE, RED + actual, WHITE, RED + description);
         } else {
-            return String.format("%n%sActual      : %s%n%sDescription : %s", WHITE, RED + actual, WHITE, RED + description);
+            return String.format("%n%sActual      : %s%n%sDescription : %s", WHITE, RED + actual,
+                WHITE, RED + description);
 
         }
     }

@@ -9,7 +9,7 @@ public class AnonymousIntegerAssert extends AnonymousObjectAssert implements
 
     public void isEven(Integer actual) {
         boolean result = (actual & 1) == 0;
-        this.defaultDescription = actual + " is not even";
+        this.defaultDescription = String.format("%s is not even", actual);
         if (!result) {
             String description = setDescription();
             throw getException(setDefaultText(actual, "Odd", description));
@@ -18,7 +18,7 @@ public class AnonymousIntegerAssert extends AnonymousObjectAssert implements
 
     public void isOdd(Integer actual) {
         boolean result = (actual & 1) != 0;
-        this.defaultDescription = actual + " is not odd";
+        this.defaultDescription = String.format("%s is not odd", actual);
         if (!result) {
             String description = setDescription();
             throw getException(setDefaultText(actual, "Even", description));
@@ -28,7 +28,7 @@ public class AnonymousIntegerAssert extends AnonymousObjectAssert implements
     @Override
     public void isLessThan(Integer actual, Integer expected) {
         int result = Integer.compare(actual, expected);
-        this.defaultDescription = actual + " is not less than " + expected;
+      this.defaultDescription = String.format("%s is not less than %s", actual, expected);
         if (result != -1 || result == 0) {
             String description = setDescription();
             throw getException(setDefaultText(actual, expected, description));
@@ -38,7 +38,7 @@ public class AnonymousIntegerAssert extends AnonymousObjectAssert implements
     @Override
     public void isPositive(Integer actual) {
         boolean result = actual > 0;
-        this.defaultDescription = actual + " is not positive";
+       this.defaultDescription = String.format("%s is not positive", actual);
         if (!result) {
             String description = setDescription();
             throw getException(setDefaultText(actual, "Positive", description));
@@ -48,7 +48,7 @@ public class AnonymousIntegerAssert extends AnonymousObjectAssert implements
     @Override
     public void isNotPositive(Integer actual) {
         boolean result = actual < 0;
-        this.defaultDescription = actual + " is positive";
+        this.defaultDescription = String.format("%s is positive", actual);
         if (!result) {
             String description = setDescription();
             throw getException(setDefaultText(actual, "Not Positive", description));
@@ -58,7 +58,7 @@ public class AnonymousIntegerAssert extends AnonymousObjectAssert implements
     @Override
     public void isNegative(Integer actual) {
         boolean result = actual < 0;
-        this.defaultDescription = actual + " is not negative";
+        this.defaultDescription = String.format("%s is not negative", actual);
         if (!result) {
             String description = setDescription();
             throw getException(setDefaultText(actual, "Negative", description));
@@ -68,7 +68,7 @@ public class AnonymousIntegerAssert extends AnonymousObjectAssert implements
     @Override
     public void isNotNegative(Integer actual) {
         boolean result = actual > 0;
-        this.defaultDescription = actual + " is negative";
+        this.defaultDescription = String.format("%s is negative", actual);
         if (!result) {
             String description = setDescription();
             throw getException(setDefaultText(actual, "Not Negative", description));
@@ -78,7 +78,7 @@ public class AnonymousIntegerAssert extends AnonymousObjectAssert implements
     @Override
     public void isZero(Integer actual) {
         boolean result = actual == 0;
-        this.defaultDescription = actual + " is not zero";
+        this.defaultDescription = String.format("%s is not zero", actual);
         if (!result) {
             String description = setDescription();
             throw getException(setDefaultText(actual, "Zero", description));
@@ -88,7 +88,7 @@ public class AnonymousIntegerAssert extends AnonymousObjectAssert implements
     @Override
     public void isNotZero(Integer actual) {
         boolean result = actual != 0;
-        this.defaultDescription = actual + " is zero";
+        this.defaultDescription = String.format("%s is zero", actual);
         if (!result) {
             String description = setDescription();
             throw getException(setDefaultText(actual, "Not Zero", description));
@@ -100,7 +100,7 @@ public class AnonymousIntegerAssert extends AnonymousObjectAssert implements
         int startResult = Integer.compare(actual, (expected - offset.value));
         int endResult = Integer.compare(actual, (expected + offset.value));
 
-        this.defaultDescription = actual + " is not close to " + expected;
+        this.defaultDescription = String.format("%s is not close to %s", actual, expected);
         if (startResult == -1 || endResult == 1) {
             String description = setDescription();
             throw getException(setDefaultText(actual,
@@ -113,7 +113,7 @@ public class AnonymousIntegerAssert extends AnonymousObjectAssert implements
         int startResult = Integer.compare(actual, (expected - offset.value));
         int endResult = Integer.compare(actual, (expected + offset.value));
 
-        this.defaultDescription = actual + " is close to " + expected;
+        this.defaultDescription = String.format("%s is close to %s", actual, expected);
         if (startResult == 1 || endResult == 1) {
             String description = setDescription();
             throw getException(setDefaultText(actual,
@@ -125,7 +125,7 @@ public class AnonymousIntegerAssert extends AnonymousObjectAssert implements
     @Override
     public void isLessThanOrEqualTo(Integer actual, Integer expected) {
         int result = Integer.compare(actual, expected);
-        this.defaultDescription = actual + " is not less than or Equal to " + expected;
+       this.defaultDescription = String.format("%s is not less than or equal to %s", actual, expected);;
         if (result == 1) {
             String description = setDescription();
             throw getException(setDefaultText(actual, expected, description));
@@ -135,7 +135,7 @@ public class AnonymousIntegerAssert extends AnonymousObjectAssert implements
     @Override
     public void isGreaterThan(Integer actual, Integer expected) {
         int result = Integer.compare(actual, expected);
-        this.defaultDescription = actual + " is not greater than " + expected;
+        this.defaultDescription = String.format("%s is not greater than %s", actual, expected);;
         if (result != 1 || result == 0) {
             String description = setDescription();
             throw getException(setDefaultText(actual, expected, description));
@@ -145,7 +145,7 @@ public class AnonymousIntegerAssert extends AnonymousObjectAssert implements
     @Override
     public void isGreaterThanOrEqualTo(Integer actual, Integer expected) {
         int result = Integer.compare(actual, expected);
-        this.defaultDescription = actual + " is not greater than or Equal to " + expected;
+        this.defaultDescription = String.format("%s is not greater than or Equal to %s", actual, expected);
         if (result == -1) {
             String description = setDescription();
             throw getException(setDefaultText(actual, expected, description));
@@ -156,7 +156,7 @@ public class AnonymousIntegerAssert extends AnonymousObjectAssert implements
     public void isBetween(Integer actual, Integer start, Integer end) {
         if ((Integer.compare(actual, start) == -1) || ((
             Integer.compare(actual, end) == 1))) {
-            this.defaultDescription = actual + " is not between " + start + "  and " + end;
+            this.defaultDescription = String.format("%s is not between %s and %s", actual, start, end);
             String description = setDescription();
             throw getException(setDefaultText(actual, start + " ~ " + end, description));
         }

@@ -8,7 +8,7 @@ public class AnonymousStringAssert extends AnonymousCharSequenceAssert implement
     @Override
     public void isLessThan(String actual, String expected) {
         int result = actual.compareTo(expected);
-        this.defaultDescription = actual + " is not less than " + expected;
+      this.defaultDescription = String.format("%s is not less than %s", actual, expected);
         if (result != -1 || result == 0) {
             String description = setDescription();
             throw getException(setDefaultText(actual, expected, description));
@@ -18,7 +18,7 @@ public class AnonymousStringAssert extends AnonymousCharSequenceAssert implement
     @Override
     public void isLessThanOrEqualTo(String actual, String expected) {
         int result = actual.compareTo(expected);
-        this.defaultDescription = actual + " is not less than or Equal to " + expected;
+       this.defaultDescription = String.format("%s is not less than or equal to %s", actual, expected);;
         if (result == 1) {
             String description = setDescription();
             throw getException(setDefaultText(actual, expected, description));
@@ -28,7 +28,7 @@ public class AnonymousStringAssert extends AnonymousCharSequenceAssert implement
     @Override
     public void isGreaterThan(String actual, String expected) {
         int result = actual.compareTo(expected);
-        this.defaultDescription = actual + " is not greater than " + expected;
+        this.defaultDescription = String.format("%s is not greater than %s", actual, expected);;
         if (result != 1 || result == 0) {
             String description = setDescription();
             throw getException(setDefaultText(actual, expected, description));
@@ -38,7 +38,7 @@ public class AnonymousStringAssert extends AnonymousCharSequenceAssert implement
     @Override
     public void isGreaterThanOrEqualTo(String actual, String expected) {
         int result = actual.compareTo(expected);
-        this.defaultDescription = actual + " is not greater than or Equal to " + expected;
+        this.defaultDescription = String.format("%s is not greater than or Equal to %s", actual, expected);
         if (result == -1) {
             String description = setDescription();
             throw getException(setDefaultText(actual, expected, description));
@@ -49,7 +49,7 @@ public class AnonymousStringAssert extends AnonymousCharSequenceAssert implement
     public void isBetween(String actual, String start, String end) {
         if ((actual.compareTo(start) == -1) || ((
             actual.compareTo(end) == 1))) {
-            this.defaultDescription = actual + " is not between " + start + "  and " + end;
+            this.defaultDescription = String.format("%s is not between %s and %s", actual, start, end);
             String description = setDescription();
             throw getException(setDefaultText(actual, start + " ~ " + end, description));
         }

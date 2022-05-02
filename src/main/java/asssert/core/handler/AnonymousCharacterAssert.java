@@ -7,7 +7,7 @@ public class AnonymousCharacterAssert extends AnonymousObjectAssert implements
 
     public void isUpperCase(Character actual) {
         boolean result = Character.isUpperCase(actual);
-        this.defaultDescription = actual + " is not upper case";
+        this.defaultDescription = String.format("%s is not upper case", actual);
         if (!result) {
             String description = setDescription();
             throw getException(setDefaultText(actual, null, description));
@@ -16,7 +16,7 @@ public class AnonymousCharacterAssert extends AnonymousObjectAssert implements
 
     public void isLowerCase(Character actual) {
         boolean result = Character.isLowerCase(actual);
-        this.defaultDescription = actual + " is not lower case";
+        this.defaultDescription = String.format("%s is not lower case", actual);
         if (!result) {
             String description = setDescription();
             throw getException(setDefaultText(actual, null, description));
@@ -25,7 +25,7 @@ public class AnonymousCharacterAssert extends AnonymousObjectAssert implements
 
     public void isLetter(Character actual) {
         boolean result = Character.isLetter(actual);
-        this.defaultDescription = actual + " is not letter";
+        this.defaultDescription = String.format("%s is not letter", actual);
         if (!result) {
             String description = setDescription();
             throw getException(setDefaultText(actual, null, description));
@@ -34,7 +34,7 @@ public class AnonymousCharacterAssert extends AnonymousObjectAssert implements
 
     public void isDigit(Character actual) {
         boolean result = Character.isDigit(actual);
-        this.defaultDescription = actual + " is not digit";
+        this.defaultDescription = String.format("%s is not digit", actual);
         if (!result) {
             String description = setDescription();
             throw getException(setDefaultText(actual, null, description));
@@ -43,7 +43,7 @@ public class AnonymousCharacterAssert extends AnonymousObjectAssert implements
 
     public void isWhitespace(Character actual) {
         boolean result = Character.isWhitespace(actual);
-        this.defaultDescription = actual + " is not whitespace";
+        this.defaultDescription = String.format("%s is not whitespace", actual);
         if (!result) {
             String description = setDescription();
             throw getException(setDefaultText(actual, null, description));
@@ -53,7 +53,7 @@ public class AnonymousCharacterAssert extends AnonymousObjectAssert implements
     @Override
     public void isLessThan(Character actual, Character expected) {
         int result = actual.compareTo(expected);
-        this.defaultDescription = actual + " is not less than " + expected;
+        this.defaultDescription = String.format("%s is not less than %s", actual, expected);;
         if (result != -1 || result == 0) {
             String description = setDescription();
             throw getException(setDefaultText(actual, expected, description));
@@ -63,7 +63,7 @@ public class AnonymousCharacterAssert extends AnonymousObjectAssert implements
     @Override
     public void isLessThanOrEqualTo(Character actual, Character expected) {
         int result = actual.compareTo(expected);
-        this.defaultDescription = actual + " is not less than or Equal to " + expected;
+        this.defaultDescription = String.format("%s is not less than or equal to %s", actual, expected);;
         if (result == 1) {
             String description = setDescription();
             throw getException(setDefaultText(actual, expected, description));
@@ -73,7 +73,7 @@ public class AnonymousCharacterAssert extends AnonymousObjectAssert implements
     @Override
     public void isGreaterThan(Character actual, Character expected) {
         int result = actual.compareTo(expected);
-        this.defaultDescription = actual + " is not greater than " + expected;
+        this.defaultDescription = String.format("%s is not greater than %s", actual, expected);;
         if (result != 1 || result == 0) {
             String description = setDescription();
             throw getException(setDefaultText(actual, expected, description));
@@ -83,7 +83,7 @@ public class AnonymousCharacterAssert extends AnonymousObjectAssert implements
     @Override
     public void isGreaterThanOrEqualTo(Character actual, Character expected) {
         int result = actual.compareTo(expected);
-        this.defaultDescription = actual + " is not greater than or Equal to " + expected;
+        this.defaultDescription = String.format("%s is not greater than or Equal to %s", actual, expected);
         if (result == -1) {
             String description = setDescription();
             throw getException(setDefaultText(actual, expected, description));
@@ -94,7 +94,7 @@ public class AnonymousCharacterAssert extends AnonymousObjectAssert implements
     public void isBetween(Character actual, Character start, Character end) {
         if ((actual.compareTo(start) == -1) || ((
             actual.compareTo(end) == 1))) {
-            this.defaultDescription = actual + " is not between " + start + "  and " + end;
+            this.defaultDescription = String.format("%s is not between %s and %s", actual, start, end);
             String description = setDescription();
             throw getException(setDefaultText(actual, start + " ~ " + end, description));
         }

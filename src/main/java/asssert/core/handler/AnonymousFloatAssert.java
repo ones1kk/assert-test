@@ -10,7 +10,7 @@ public class AnonymousFloatAssert extends AnonymousObjectAssert implements
     @Override
     public void isPositive(Float actual) {
         boolean result = actual > 0;
-        this.defaultDescription = actual + " is not positive";
+       this.defaultDescription = String.format("%s is not positive", actual);
         if (!result) {
             String description = setDescription();
             throw getException(setDefaultText(actual, "Positive", description));
@@ -20,7 +20,7 @@ public class AnonymousFloatAssert extends AnonymousObjectAssert implements
     @Override
     public void isNotPositive(Float actual) {
         boolean result = actual < 0;
-        this.defaultDescription = actual + " is positive";
+        this.defaultDescription = String.format("%s is positive", actual);
         if (!result) {
             String description = setDescription();
             throw getException(setDefaultText(actual, "Not Positive", description));
@@ -30,7 +30,7 @@ public class AnonymousFloatAssert extends AnonymousObjectAssert implements
     @Override
     public void isNegative(Float actual) {
         boolean result = actual < 0;
-        this.defaultDescription = actual + " is not negative";
+        this.defaultDescription = String.format("%s is not negative", actual);
         if (!result) {
             String description = setDescription();
             throw getException(setDefaultText(actual, "Negative", description));
@@ -40,7 +40,7 @@ public class AnonymousFloatAssert extends AnonymousObjectAssert implements
     @Override
     public void isNotNegative(Float actual) {
         boolean result = actual > 0;
-        this.defaultDescription = actual + " is negative";
+        this.defaultDescription = String.format("%s is negative", actual);
         if (!result) {
             String description = setDescription();
             throw getException(setDefaultText(actual, "Not Negative", description));
@@ -50,7 +50,7 @@ public class AnonymousFloatAssert extends AnonymousObjectAssert implements
     @Override
     public void isZero(Float actual) {
         boolean result = actual == 0;
-        this.defaultDescription = actual + " is not zero";
+        this.defaultDescription = String.format("%s is not zero", actual);
         if (!result) {
             String description = setDescription();
             throw getException(setDefaultText(actual, "Zero", description));
@@ -60,7 +60,7 @@ public class AnonymousFloatAssert extends AnonymousObjectAssert implements
     @Override
     public void isNotZero(Float actual) {
         boolean result = actual != 0;
-        this.defaultDescription = actual + " is zero";
+        this.defaultDescription = String.format("%s is zero", actual);
         if (!result) {
             String description = setDescription();
             throw getException(setDefaultText(actual, "Not Zero", description));
@@ -72,7 +72,7 @@ public class AnonymousFloatAssert extends AnonymousObjectAssert implements
         int startResult = Float.compare(actual, (expected - offset.value));
         int endResult = Float.compare(actual, (expected + offset.value));
 
-        this.defaultDescription = actual + " is not close to " + expected;
+        this.defaultDescription = String.format("%s is not close to %s", actual, expected);
         if (startResult == -1 || endResult == 1) {
             String description = setDescription();
             throw getException(setDefaultText(actual,
@@ -85,7 +85,7 @@ public class AnonymousFloatAssert extends AnonymousObjectAssert implements
         int startResult = Float.compare(actual, (expected - offset.value));
         int endResult = Float.compare(actual, (expected + offset.value));
 
-        this.defaultDescription = actual + " is close to " + expected;
+        this.defaultDescription = String.format("%s is close to %s", actual, expected);
         if (startResult == 1 || endResult == 1) {
             String description = setDescription();
             throw getException(setDefaultText(actual,
@@ -96,7 +96,7 @@ public class AnonymousFloatAssert extends AnonymousObjectAssert implements
 
     public void isInfinity(Float actual) {
         boolean result = Float.isInfinite(actual);
-        this.defaultDescription = actual + " is not infinity";
+        this.defaultDescription = String.format("%s is not infinity", actual);
         if (!result) {
             String description = setDescription();
             throw getException(setDefaultText(actual, "Finite", description));
@@ -105,7 +105,7 @@ public class AnonymousFloatAssert extends AnonymousObjectAssert implements
 
     public void isFinite(Float actual) {
         boolean result = Float.isFinite(actual);
-        this.defaultDescription = actual + " is not finite";
+        this.defaultDescription = String.format("%s is not finite", actual);
         if (!result) {
             String description = setDescription();
             throw getException(setDefaultText(actual, "Infinity", description));
@@ -114,7 +114,7 @@ public class AnonymousFloatAssert extends AnonymousObjectAssert implements
 
     public void isNaN(Float actual) {
         boolean result = Float.isNaN(actual);
-        this.defaultDescription = actual + " is not NaN";
+        this.defaultDescription = String.format("%s is not NaN", actual);
         if (!result) {
             String description = setDescription();
             throw getException(setDefaultText(actual, "Number", description));
@@ -124,7 +124,7 @@ public class AnonymousFloatAssert extends AnonymousObjectAssert implements
     @Override
     public void isLessThan(Float actual, Float expected) {
         int result = actual.compareTo(expected);
-        this.defaultDescription = actual + " is not less than " + expected;
+      this.defaultDescription = String.format("%s is not less than %s", actual, expected);
         if (result != -1 || result == 0) {
             String description = setDescription();
             throw getException(setDefaultText(actual, expected, description));
@@ -134,7 +134,7 @@ public class AnonymousFloatAssert extends AnonymousObjectAssert implements
     @Override
     public void isLessThanOrEqualTo(Float actual, Float expected) {
         int result = actual.compareTo(expected);
-        this.defaultDescription = actual + " is not less than or Equal to " + expected;
+       this.defaultDescription = String.format("%s is not less than or equal to %s", actual, expected);;
         if (result == 1) {
             String description = setDescription();
             throw getException(setDefaultText(actual, expected, description));
@@ -144,7 +144,7 @@ public class AnonymousFloatAssert extends AnonymousObjectAssert implements
     @Override
     public void isGreaterThan(Float actual, Float expected) {
         int result = actual.compareTo(expected);
-        this.defaultDescription = actual + " is not greater than " + expected;
+        this.defaultDescription = String.format("%s is not greater than %s", actual, expected);;
         if (result != 1 || result == 0) {
             String description = setDescription();
             throw getException(setDefaultText(actual, expected, description));
@@ -154,7 +154,7 @@ public class AnonymousFloatAssert extends AnonymousObjectAssert implements
     @Override
     public void isGreaterThanOrEqualTo(Float actual, Float expected) {
         int result = actual.compareTo(expected);
-        this.defaultDescription = actual + " is not greater than or Equal to " + expected;
+        this.defaultDescription = String.format("%s is not greater than or Equal to %s", actual, expected);
         if (result == -1) {
             String description = setDescription();
             throw getException(setDefaultText(actual, expected, description));
@@ -165,7 +165,7 @@ public class AnonymousFloatAssert extends AnonymousObjectAssert implements
     public void isBetween(Float actual, Float start, Float end) {
         if ((actual.compareTo(start) == -1) || ((
             actual.compareTo(end) == 1))) {
-            this.defaultDescription = actual + " is not between " + start + "  and " + end;
+            this.defaultDescription = String.format("%s is not between %s and %s", actual, start, end);
             String description = setDescription();
             throw getException(setDefaultText(actual, start + " ~ " + end, description));
         }

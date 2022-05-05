@@ -62,6 +62,8 @@ public final class AssertFactory {
         return new AnonymousShortAssert();
     }
 
-    public AnonymousNumberArrayAssert createAssert(Number[] number) {return  new AnonymousNumberArrayAssert();}
+    public AnonymousNumberArrayAssert createAssert(Number[] number) {
+        return new AnonymousNumberArrayAssert();
+    }
 
 }

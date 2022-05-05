@@ -2,11 +2,11 @@ package asssert.core.handler;
 
 import asssert.core.feature.IterableAssert;
 import java.util.Arrays;
-import java.util.List;
 import java.util.function.Predicate;
 import org.apache.commons.lang3.ArrayUtils;
 
-public class AnonymousNumberArrayAssert extends AnonymousObjectAssert implements IterableAssert<Number[], Number> {
+public class AnonymousNumberArrayAssert extends AnonymousObjectAssert implements
+    IterableAssert<Number[], Number> {
 
     @Override
     public void isEmpty(Number[] actual) {
@@ -54,7 +54,7 @@ public class AnonymousNumberArrayAssert extends AnonymousObjectAssert implements
         this.defaultDescription = String.format("%s is not contains %s", actualArray, expected);
         if (!result) {
             String description = setDescription();
-            throw getException(setDefaultText(actualArray,  null, description));
+            throw getException(setDefaultText(actualArray, null, description));
         }
 
     }

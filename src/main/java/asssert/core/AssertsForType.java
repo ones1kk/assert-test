@@ -62,4 +62,8 @@ public class AssertsForType {
         return new ShortAssert(ShortAssert.class, actual);
     }
 
+    public static AbstractNumberArrayAssert<?, Number[]> assertThat(Number[] actual) {
+        return new NumberArrayAssert(NumberArrayAssert.class, actual);
+    }
+
 }

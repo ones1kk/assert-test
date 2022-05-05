@@ -26,4 +26,26 @@ public class AbstractNumberArrayAssert<SELF extends AbstractNumberArrayAssert<SE
         this.numberArrayAssert.isEmpty(actual);
         return self;
     }
+
+    public SELF isNotEmpty() {
+        this.numberArrayAssert.isNotEmpty(actual);
+        return self;
+    }
+
+    public SELF isNullOrEmpty() {
+        this.numberArrayAssert.isNullOrEmpty(actual);
+        return self;
+    }
+
+    public SELF contains(Number... expected) {
+        this.numberArrayAssert.contains(actual, expected);
+        return self;
+    }
+
+    public SELF contains(Number expected) {
+        this.numberArrayAssert.contains(actual, expected);
+        return self;
+    }
+
+
 }

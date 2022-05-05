@@ -15,7 +15,7 @@ public class AssertsBasicTest {
             .isExactlyInstanceOf(StringAssert.class);
 
         char actual1 = 'h';
-        Assertions.assertThat(Assertion.assertThat(actual1).isUpperCase()).isExactlyInstanceOf(
+        Assertions.assertThat(Assertion.assertThat(actual1).isLowerCase()).isExactlyInstanceOf(
             CharacterAssert.class);
     }
 

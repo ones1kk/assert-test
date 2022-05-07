@@ -10,21 +10,20 @@ public interface IterableAssert<ACTUAL, EXPECTED> {
 
     void isNullOrEmpty(ACTUAL actual);
 
-    void hasElement(ACTUAL actual, ACTUAL expected);
-
-    void contains(ACTUAL actual, EXPECTED... expected);
-
     void contains(ACTUAL actual, EXPECTED expected);
+
+    void doesNotContain(ACTUAL actual, EXPECTED expected);
 
     void containsAll(ACTUAL actual, EXPECTED... expected);
 
     void containsAny(ACTUAL actual, EXPECTED... expected);
 
-    void containsNull(ACTUAL actual, ACTUAL expected);
+    void containsNull(ACTUAL actual);
+
+    void doesNotContainNull(ACTUAL actual);
 
     void allMatch(ACTUAL actual, Predicate<ACTUAL> expected);
 
     void noneMatch(ACTUAL actual, Predicate<ACTUAL> expected);
-
 
 }

@@ -1,6 +1,6 @@
 package asssert.core;
 
-public interface InterfaceObjectAssert<SELF, ACTUAL> {
+public interface InterfaceAssert<SELF, ACTUAL> {
 
     SELF isNull();
 

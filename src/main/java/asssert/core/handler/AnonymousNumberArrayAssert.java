@@ -94,15 +94,18 @@ public class AnonymousNumberArrayAssert extends AnonymousObjectAssert implements
     @Override
     public void containsAny(Number[] actual, Number... expected) {
         List<Number> numbers = Arrays.asList(actual);
-        boolean result  = false;
+        boolean result = false;
         for (int i = 0; i < expected.length; i++) {
-             result = numbers.contains(expected[i]);
-             if(result) return;
+            result = numbers.contains(expected[i]);
+            if (result) {
+                return;
+            }
         }
 
         String actualArray = Arrays.deepToString(actual);
         String expectedArray = Arrays.deepToString(expected);
-        this.defaultDescription = String.format("%s doesn't contain any of %s", actualArray, expectedArray);
+        this.defaultDescription = String.format("%s doesn't contain any of %s", actualArray,
+            expectedArray);
 
         if (!result) {
             String description = setDescription();
@@ -123,7 +126,7 @@ public class AnonymousNumberArrayAssert extends AnonymousObjectAssert implements
             throw getException(setDefaultText(actualArray, "doesn't contain of null", description));
         }
     }
-    
+
     @Override
     public void doesNotContainNull(Number[] actual) {
         boolean result = Arrays.asList(actual).contains(null);
@@ -135,7 +138,7 @@ public class AnonymousNumberArrayAssert extends AnonymousObjectAssert implements
             String description = setDescription();
             throw getException(setDefaultText(actualArray, "contains of null", description));
         }
-        
+
     }
 
     @Override

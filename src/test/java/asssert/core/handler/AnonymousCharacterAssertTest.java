@@ -13,7 +13,7 @@ class AnonymousCharacterAssertTest {
     @DisplayName("validate instance inheritance relationship")
     void test1() {
         AnonymousCharacterAssert anonymousCharacterAssert = new AnonymousCharacterAssert();
-        Assertions.assertThat(anonymousCharacterAssert).isInstanceOf(AbstractAssert.class)
+        Assertions.assertThat(anonymousCharacterAssert).isInstanceOf(AnonymousObjectAssert.class)
             .isInstanceOf(AnonymousCharacterAssert.class);
     }
 

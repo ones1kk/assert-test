@@ -13,7 +13,7 @@ class StringAbstractAssertTest {
     void test1() {
         String actual = "hello";
         AnonymousStringAssert stringAssert = new AnonymousStringAssert();
-        Assertions.assertThat(stringAssert).isInstanceOf(AbstractAssert.class)
+        Assertions.assertThat(stringAssert).isInstanceOf(AnonymousObjectAssert.class)
             .isInstanceOf(AnonymousCharSequenceAssert.class);
     }
 

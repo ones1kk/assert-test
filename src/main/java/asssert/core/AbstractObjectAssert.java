@@ -7,8 +7,8 @@ import asssert.core.handler.AssertFactory;
 import java.util.function.Supplier;
 import javax.annotation.Nullable;
 
-public abstract class AbstractObjectAssert<SELF, ACTUAL> implements
-    InterfaceObjectAssert<SELF, Object> {
+public abstract class AbstractObjectAssert<SELF extends InterfaceAssert<SELF, Object>, ACTUAL> implements
+    InterfaceAssert<SELF, Object> {
 
     protected final SELF self;
 

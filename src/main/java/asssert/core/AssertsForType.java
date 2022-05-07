@@ -2,6 +2,10 @@ package asssert.core;
 
 public class AssertsForType {
 
+    public static AbstractObjectAssert<?, Object> assertThat(Object actual) {
+        return new ObjectAssert(ObjectAssert.class, actual);
+    }
+
     public static AbstractStringAssert<?> assertThat(String actual) {
         return new StringAssert(actual);
     }

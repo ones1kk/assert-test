@@ -7,6 +7,7 @@ import asssert.core.AbstractFloatAssert;
 import asssert.core.AbstractIntegerAssert;
 import asssert.core.AbstractLongAssert;
 import asssert.core.AbstractNumberArrayAssert;
+import asssert.core.AbstractObjectAssert;
 import asssert.core.AbstractShortAssert;
 import asssert.core.AbstractStringAssert;
 import asssert.core.AssertsForType;
@@ -14,6 +15,10 @@ import asssert.core.AssertsForType;
 public final class Assertion {
 
     private Assertion() {
+    }
+
+    public static AbstractObjectAssert<?, Object> assertThat(Object actual) {
+        return AssertsForType.assertThat(actual);
     }
 
     public static AbstractStringAssert<?> assertThat(String actual) {

@@ -1,6 +1,7 @@
 package asssert.core;
 
 import asssert.core.handler.AnonymousNumberArrayAssert;
+import java.util.function.Predicate;
 
 public class AbstractNumberArrayAssert<SELF extends AbstractNumberArrayAssert<SELF, Number[]>, ACTUAL> extends
     AbstractObjectAssert<SELF, Number[]> {
@@ -15,22 +16,22 @@ public class AbstractNumberArrayAssert<SELF extends AbstractNumberArrayAssert<SE
 
     private void castType(Number[] actual) {
         if (actual instanceof Integer[]) {
-            actual = (Integer[]) actual;
+            actual = (Integer[]) this.actual;
         }
         if (actual instanceof Double[]) {
-            actual = (Double[]) actual;
+            actual = (Double[]) this.actual;
         }
         if (actual instanceof Long[]) {
-            actual = (Long[]) actual;
+            actual = (Long[]) this.actual;
         }
         if (actual instanceof Float[]) {
-            actual = (Float[]) actual;
+            actual = (Float[]) this.actual;
         }
         if (actual instanceof Byte[]) {
-            actual = (Byte[]) actual;
+            actual = (Byte[]) this.actual;
         }
         if (actual instanceof Short[]) {
-            actual = (Short[]) actual;
+            actual = (Short[]) this.actual;
         }
     }
 

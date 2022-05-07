@@ -13,6 +13,8 @@ class AbstractObjectAssertTest {
         String expected = "hello";
         Assertion.assertThat(actual).isNotNull().isNotEmpty().isSameAs(expected)
             .isAssignableFrom(String.class);
+
+        Assertion.assertThat(new Object()).as("aa").isNotNull();
     }
 
 }

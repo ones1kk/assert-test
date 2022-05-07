@@ -2,7 +2,7 @@ package asssert.core.handler;
 
 import java.util.Objects;
 
-public class AnonymousObjectAssert extends AbstractAssert {
+public class AnonymousObjectAssert extends AnonymousAbstractAssert {
 
     @Override
     public void isNull(Object actual) {

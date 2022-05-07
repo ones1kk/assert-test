@@ -30,7 +30,7 @@ public final class AssertFactory {
         return new AnonymousIntegerAssert();
     }
 
-    public AnonymousDoubleAssert createAssert(Object value) {
+    public AnonymousDoubleAssert createAssert(Double value) {
         return new AnonymousDoubleAssert();
     }
 

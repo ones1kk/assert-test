@@ -86,7 +86,7 @@ public class AbstractNumberArrayAssert<SELF extends AbstractNumberArrayAssert<SE
     }
 
     public SELF noneMatch(Predicate<Number[]> expected) {
-        this.numberArrayAssert.noneMatch(actual, expected.negate());
+        this.numberArrayAssert.noneMatch(actual, expected);
         return self;
     }
 

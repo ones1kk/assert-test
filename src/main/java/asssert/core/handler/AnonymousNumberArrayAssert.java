@@ -155,7 +155,7 @@ public class AnonymousNumberArrayAssert extends AnonymousObjectAssert implements
 
     @Override
     public void noneMatch(Number[] actual, Predicate<Number[]> expected) {
-        boolean result = expected.test(actual);
+        boolean result = expected.negate().test(actual);
 
         String actualArray = Arrays.deepToString(actual);
         this.defaultDescription = String.format("%s is matched with all of expected", actualArray);

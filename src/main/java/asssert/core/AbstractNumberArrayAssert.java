@@ -50,13 +50,43 @@ public class AbstractNumberArrayAssert<SELF extends AbstractNumberArrayAssert<SE
         return self;
     }
 
-    public SELF contains(Number... expected) {
+    public SELF contains(Number expected) {
         this.numberArrayAssert.contains(actual, expected);
         return self;
     }
 
-    public SELF contains(Number expected) {
-        this.numberArrayAssert.contains(actual, expected);
+    public SELF doesNotContain(Number expected) {
+        this.numberArrayAssert.doesNotContain(actual, expected);
+        return self;
+    }
+
+    public SELF containsAll(Number... expected) {
+        this.numberArrayAssert.containsAll(actual, expected);
+        return self;
+    }
+
+    public SELF containsAny(Number... expected) {
+        this.numberArrayAssert.containsAny(actual, expected);
+        return self;
+    }
+
+    public SELF containsNull() {
+        this.numberArrayAssert.containsNull(actual);
+        return self;
+    }
+
+    public SELF doesNotContainNull() {
+        this.numberArrayAssert.doesNotContainNull(actual);
+        return self;
+    }
+
+    public SELF allMatch(Predicate<Number[]> expected) {
+        this.numberArrayAssert.allMatch(actual, expected);
+        return self;
+    }
+
+    public SELF noneMatch(Predicate<Number[]> expected) {
+        this.numberArrayAssert.noneMatch(actual, expected.negate());
         return self;
     }
 

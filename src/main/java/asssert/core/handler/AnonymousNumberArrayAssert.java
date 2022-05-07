@@ -50,28 +50,40 @@ public class AnonymousNumberArrayAssert extends AnonymousObjectAssert implements
     }
 
     @Override
-    public void hasElement(Number[] actual, Number[] expected) {
-
-    }
-
-    @Override
     public void contains(Number[] actual, Number expected) {
         boolean result = Arrays.asList(actual).contains(expected);
+
         String actualArray = Arrays.deepToString(actual);
-        this.defaultDescription = String.format("%s is not contains %s", actualArray, expected);
+        this.defaultDescription = String.format("%s doesn't contains of %s", actualArray, expected);
+
         if (!result) {
             String description = setDescription();
             throw getException(setDefaultText(actualArray, null, description));
         }
-
     }
 
     @Override
-    public void contains(Number[] actual, Number... expected) {
-        Arrays.stream(actual).forEach(it -> {
-            boolean result = Arrays.asList(expected).contains(it);
+    public void doesNotContain(Number[] actual, Number expected) {
+        boolean result = Arrays.asList(actual).contains(expected);
+
+        String actualArray = Arrays.deepToString(actual);
+        this.defaultDescription = String.format("%s contains of %s", actualArray, expected);
+
+        if (result) {
+            String description = setDescription();
+            throw getException(setDefaultText(actualArray, null, description));
+        }
+    }
+
+    @Override
+    public void containsAll(Number[] actual, Number... expected) {
+        List<Number> numbers = Arrays.asList(actual);
+        Arrays.asList(expected).forEach(it -> {
+            boolean result = numbers.contains(it);
+
             String actualArray = Arrays.deepToString(actual);
-            this.defaultDescription = String.format("%s is not contains %s", actualArray, it);
+            this.defaultDescription = String.format("%s doesn't contain of %s", actualArray, it);
+
             if (!result) {
                 String description = setDescription();
                 throw getException(setDefaultText(actualArray, null, description));
@@ -80,27 +92,75 @@ public class AnonymousNumberArrayAssert extends AnonymousObjectAssert implements
     }
 
     @Override
-    public void containsAll(Number[] actual, Number... expected) {
-
-    }
-
-    @Override
     public void containsAny(Number[] actual, Number... expected) {
+        List<Number> numbers = Arrays.asList(actual);
+        boolean result  = false;
+        for (int i = 0; i < expected.length; i++) {
+             result = numbers.contains(expected[i]);
+             if(result) return;
+        }
+
+        String actualArray = Arrays.deepToString(actual);
+        String expectedArray = Arrays.deepToString(expected);
+        this.defaultDescription = String.format("%s doesn't contain any of %s", actualArray, expectedArray);
+
+        if (!result) {
+            String description = setDescription();
+            throw getException(setDefaultText(actualArray, null, description));
+        }
 
     }
 
     @Override
-    public void containsNull(Number[] actual, Number[] expected) {
+    public void containsNull(Number[] actual) {
+        boolean result = Arrays.asList(actual).contains(null);
 
+        String actualArray = Arrays.deepToString(actual);
+        this.defaultDescription = String.format("%s doesn't contain of null", actualArray);
+
+        if (!result) {
+            String description = setDescription();
+            throw getException(setDefaultText(actualArray, "doesn't contain of null", description));
+        }
+    }
+    
+    @Override
+    public void doesNotContainNull(Number[] actual) {
+        boolean result = Arrays.asList(actual).contains(null);
+
+        String actualArray = Arrays.deepToString(actual);
+        this.defaultDescription = String.format("%s contains of null", actualArray);
+
+        if (result) {
+            String description = setDescription();
+            throw getException(setDefaultText(actualArray, "contains of null", description));
+        }
+        
     }
 
     @Override
     public void allMatch(Number[] actual, Predicate<Number[]> expected) {
+        boolean result = expected.test(actual);
+        String actualArray = Arrays.deepToString(actual);
+        this.defaultDescription = String.format("%s is not all matched", actualArray);
 
+        if (!result) {
+            String description = setDescription();
+            throw getException(setDefaultText(actualArray, null, description));
+        }
     }
 
     @Override
     public void noneMatch(Number[] actual, Predicate<Number[]> expected) {
+        boolean result = expected.test(actual);
+
+        String actualArray = Arrays.deepToString(actual);
+        this.defaultDescription = String.format("%s is matched with all of expected", actualArray);
+
+        if (!result) {
+            String description = setDescription();
+            throw getException(setDefaultText(actualArray, actualArray, description));
+        }
 
     }
 }

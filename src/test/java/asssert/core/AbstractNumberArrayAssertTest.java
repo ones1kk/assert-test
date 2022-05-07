@@ -5,7 +5,7 @@ import java.util.Arrays;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class AbstractNumberArrayAssertTest {
+public class AbstractNumberArrayAssertTest {
 
     @Test
     @DisplayName("AbstractNumberArrayAssertTest(success)")

@@ -1,6 +1,8 @@
 package asssert.core.feature;
 
 
+import asssert.Assertion;
+
 public final class Offset<T extends Number> {
 
     public final T value;
@@ -10,9 +12,7 @@ public final class Offset<T extends Number> {
     }
 
     public static <T extends Number> Offset<T> offset(T value) {
-        if (value == null) {
-            throw new NullPointerException("offset value should be not null");
-        }
+        Assertion.assertThat(value).as("offset value should be not null").isNotNull();
         return new Offset<>(value);
     }
 }

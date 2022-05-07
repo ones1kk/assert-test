@@ -1,5 +1,6 @@
 package asssert.core.feature;
 
+import asssert.core.exception.AssertException;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -22,6 +23,10 @@ class OffsetTest {
         Assertions.assertThat(longOffset.value).isNotNull().isEqualTo(1L);
         Assertions.assertThat(shortOffset.value).isNotNull().isEqualTo((short) 1);
         Assertions.assertThat(byteOffset.value).isNotNull().isEqualTo((byte) 1);
+
+        // if construct argument of Offset.class is null
+        org.junit.jupiter.api.Assertions.assertThrows(AssertException.class,
+            () -> Offset.offset(null));
 
     }
 

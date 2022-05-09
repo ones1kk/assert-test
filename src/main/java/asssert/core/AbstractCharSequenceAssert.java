@@ -2,7 +2,7 @@ package asssert.core;
 
 import asssert.core.handler.AnonymousCharSequenceAssert;
 
-public abstract class AbstractCharSequenceAssert<SELF extends AbstractCharSequenceAssert<SELF, ACTUAL>, ACTUAL extends CharSequence> extends
+public class AbstractCharSequenceAssert<SELF extends AbstractCharSequenceAssert<SELF, ACTUAL>, ACTUAL extends CharSequence> extends
     AbstractObjectAssert<SELF, ACTUAL> {
 
     protected AnonymousCharSequenceAssert charSequenceAssert;

@@ -47,7 +47,6 @@ public class AnonymousObjectAssert extends AnonymousAbstractAssert {
     @Override
     public void isNotEqualTo(Object actual, Object expected) {
         boolean result = !(Objects.deepEquals(actual, expected));
-        this.defaultDescription = (actual + " is equal to " + expected);
         this.defaultDescription = String.format("%s is equal to %s", actual, expected);
 
         if (!result) {
@@ -59,13 +58,11 @@ public class AnonymousObjectAssert extends AnonymousAbstractAssert {
     @Override
     public void isAssignableFrom(Object actual, Class<?> expected) {
         boolean result = actual.getClass().isAssignableFrom(expected);
-        this.defaultDescription = (actual + " is not assignable from " + expected);
         this.defaultDescription = String.format("%s is not assignable from %s", actual, expected);
         if (!result) {
             String description = setDescription();
             throw getException(setDefaultText(actual.getClass(), expected, description));
         }
     }
-
 
 }

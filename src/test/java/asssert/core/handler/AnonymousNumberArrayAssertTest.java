@@ -75,8 +75,8 @@ class AnonymousNumberArrayAssertTest {
         Integer[] actual1 = {1, 2, 3};
 
         AnonymousNumberArrayAssert numberArrayAssert = new AnonymousNumberArrayAssert();
-        numberArrayAssert.isMax(actual1 , 3);
-        numberArrayAssert.isMin(actual1 , 1);
+        numberArrayAssert.isMax(actual1, 3);
+        numberArrayAssert.isMin(actual1, 1);
         numberArrayAssert.isSum(actual1, 6);
 
         Double[] actual2 = {1.1, 2.2, 3.3};

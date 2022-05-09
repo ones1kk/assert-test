@@ -2,14 +2,8 @@ package asssert.core.handler;
 
 import asssert.core.feature.IterableAssert;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.IntSummaryStatistics;
 import java.util.List;
-import java.util.function.IntUnaryOperator;
 import java.util.function.Predicate;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 import org.apache.commons.lang3.ArrayUtils;
 
 public class AnonymousNumberArrayAssert extends AnonymousObjectAssert implements
@@ -177,7 +171,7 @@ public class AnonymousNumberArrayAssert extends AnonymousObjectAssert implements
         this.defaultDescription = String.format("max value of %s is not %s", actualArray, expected);
 
         Number number = actual[actual.length - 1];
-        if(!number.equals(expected)) {
+        if (!number.equals(expected)) {
             String description = setDescription();
             throw getException(setDefaultText(actualArray, expected, description));
         }
@@ -190,7 +184,7 @@ public class AnonymousNumberArrayAssert extends AnonymousObjectAssert implements
         this.defaultDescription = String.format("min value of %s is not %s", actualArray, expected);
 
         Number number = actual[0];
-        if(!number.equals(expected)) {
+        if (!number.equals(expected)) {
             String description = setDescription();
             throw getException(setDefaultText(actualArray, expected, description));
         }
@@ -211,24 +205,24 @@ public class AnonymousNumberArrayAssert extends AnonymousObjectAssert implements
     }
 
     private void extracted1(Number[] actual, Number expected, String actualArray) {
-        double [] intArray = new double[actual.length];
+        double[] intArray = new double[actual.length];
         for (int i = 0; i < actual.length; i++) {
             intArray[i] = (double) actual[i];
         }
         double sum = Arrays.stream(intArray).sum();
-        if(sum != expected.doubleValue()) {
+        if (sum != expected.doubleValue()) {
             String description = setDescription();
             throw getException(setDefaultText(actualArray, expected, description));
         }
     }
 
     private void extracted(Number[] actual, Number expected, String actualArray) {
-        int [] doubleArray = new int[actual.length];
+        int[] doubleArray = new int[actual.length];
         for (int i = 0; i < actual.length; i++) {
             doubleArray[i] = (int) actual[i];
         }
         int sum = Arrays.stream(doubleArray).sum();
-        if(sum != expected.intValue()) {
+        if (sum != expected.intValue()) {
             String description = setDescription();
             throw getException(setDefaultText(actualArray, expected, description));
         }

@@ -68,4 +68,20 @@ class AnonymousNumberArrayAssertTest {
             () -> numberArrayAssert.noneMatch(actual1, it -> Arrays.equals(it, actual1)));
 
     }
+
+    @Test
+    @DisplayName("NumberArray methods test(success)")
+    void test3() {
+        Integer[] actual1 = {1, 2, 3};
+
+        AnonymousNumberArrayAssert numberArrayAssert = new AnonymousNumberArrayAssert();
+        numberArrayAssert.isMax(actual1 , 3);
+        numberArrayAssert.isMin(actual1 , 1);
+        numberArrayAssert.isSum(actual1, 6);
+
+        Double[] actual2 = {1.1, 2.2, 3.3};
+        numberArrayAssert.isMax(actual2, 3.3);
+        numberArrayAssert.isMin(actual2, 1.1);
+        numberArrayAssert.isSum(actual2, 6.6);
+    }
 }

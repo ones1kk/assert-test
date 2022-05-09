@@ -90,5 +90,14 @@ public class AbstractNumberArrayAssert<SELF extends AbstractNumberArrayAssert<SE
         return self;
     }
 
+    public SELF isMax(Number expected) {
+        this.numberArrayAssert.isMax(actual, expected);
+        return self;
+    }
+
+    public SELF isMin(Number expected) {
+        this.numberArrayAssert.isMin(actual, expected);
+        return self;
+    }
 
 }

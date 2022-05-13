@@ -171,6 +171,7 @@ public class AnonymousNumberArrayAssert extends AnonymousObjectAssert implements
         this.defaultDescription = String.format("max value of %s is not %s", actualArray, expected);
 
         Number number = actual[actual.length - 1];
+        System.out.println("number = " + number);
         if (!number.equals(expected)) {
             String description = setDescription();
             throw getException(setDefaultText(actualArray, expected, description));
@@ -193,40 +194,100 @@ public class AnonymousNumberArrayAssert extends AnonymousObjectAssert implements
     public void isSum(Number[] actual, Number expected) {
         String actualArray = Arrays.deepToString(actual);
         this.defaultDescription = String.format("sum value of %s is not %s", actualArray, expected);
-
-        if (actual instanceof Integer[]) {
-            extracted(actual, expected, actualArray);
-        }
-
-        if (actual instanceof Double[]) {
-            extracted1(actual, expected, actualArray);
-        }
-
+        extracted1(actual, expected, actualArray);
     }
 
     private void extracted1(Number[] actual, Number expected, String actualArray) {
-        double[] intArray = new double[actual.length];
-        for (int i = 0; i < actual.length; i++) {
-            intArray[i] = (double) actual[i];
+        int[] integers;
+        double[] doubles;
+        long[] longs;
+        short[] shorts;
+        byte[] bytes;
+        float[] floats;
+
+        int integerSum = 0;
+        double doubleSum = 0;
+        long longSum = 0;
+        short shortSum = 0;
+        byte byteSum = 0;
+        float floatSum = 0;
+
+        double sum = 0;
+//        for (Number number : actual) {
+//            sum += number.doubleValue();
+//        }
+
+        if(actual instanceof Integer[]) {
+            integers = new int[actual.length];
+            for (int i = 0; i < actual.length; i++) {
+                integers[i] = (Integer) actual[i];
+            }
+            integerSum = Arrays.stream(integers).sum();
         }
-        double sum = Arrays.stream(intArray).sum();
-        if (sum != expected.doubleValue()) {
-            String description = setDescription();
+
+        if(actual instanceof Double[]) {
+            doubles = new double[actual.length];
+            for (int i = 0; i < actual.length; i++) {
+                doubles[i] = (Double) actual[i];
+            }
+            doubleSum = Arrays.stream(doubles).sum();
+        }
+
+        if(actual instanceof Long[]) {
+            longs = new long[actual.length];
+            for (int i = 0; i < actual.length; i++) {
+                longs[i] = (Long) actual[i];
+            }
+            longSum = Arrays.stream(longs).sum();
+        }
+
+        if(actual instanceof Short[]) {
+            shorts = new short[actual.length];
+            for (int i = 0; i < actual.length; i++) {
+                shorts[i] = (Short) actual[i];
+                shortSum += shorts[i];
+            }
+        }
+
+        if(actual instanceof Byte[]) {
+            bytes = new byte[actual.length];
+            for (int i = 0; i < actual.length; i++) {
+                bytes[i] = (Byte) actual[i];
+                byteSum += bytes[i];
+            }
+        }
+        if(actual instanceof Float[]) {
+            floats = new float[actual.length];
+            for (int i = 0; i < actual.length; i++) {
+                floats[i] = (Float) actual[i];
+                floatSum += floats[i];
+            }
+        }
+
+        String description = setDescription();
+        if( actual instanceof Integer[] && integerSum != expected.intValue()) {
+            throw getException(setDefaultText(actualArray, expected, description));
+        }
+
+        if( actual instanceof Double[] && doubleSum != expected.doubleValue()) {
+            throw getException(setDefaultText(actualArray, expected, description));
+        }
+
+        if( actual instanceof Long[] && longSum != expected.longValue()) {
+            throw getException(setDefaultText(actualArray, expected, description));
+        }
+
+        if( actual instanceof Short[] && shortSum != expected.shortValue()) {
+            throw getException(setDefaultText(actualArray, expected, description));
+        }
+
+        if( actual instanceof Byte[] && byteSum != expected.byteValue()) {
+            throw getException(setDefaultText(actualArray, expected, description));
+        }
+
+        if( actual instanceof Float[] && floatSum != expected.floatValue()) {
             throw getException(setDefaultText(actualArray, expected, description));
         }
     }
-
-    private void extracted(Number[] actual, Number expected, String actualArray) {
-        int[] doubleArray = new int[actual.length];
-        for (int i = 0; i < actual.length; i++) {
-            doubleArray[i] = (int) actual[i];
-        }
-        int sum = Arrays.stream(doubleArray).sum();
-        if (sum != expected.intValue()) {
-            String description = setDescription();
-            throw getException(setDefaultText(actualArray, expected, description));
-        }
-    }
-
 
 }

@@ -72,37 +72,37 @@ class AnonymousNumberArrayAssertTest {
     @Test
     @DisplayName("NumberArray methods test(success)")
     void test3() {
-//        Integer[] actual1 = {1, 2, 3};
-//
-//        AnonymousNumberArrayAssert numberArrayAssert = new AnonymousNumberArrayAssert();
-//        numberArrayAssert.isMax(actual1, 3);
-//        numberArrayAssert.isMin(actual1, 1);
-//        numberArrayAssert.isSum(actual1, 6);
-//
-//        Double[] actual2 = {1.1, 2.2, 3.3};
-//        numberArrayAssert.isMax(actual2, 3.3);
-//        numberArrayAssert.isMin(actual2, 1.1);
-//        numberArrayAssert.isSum(actual2, 6.6);
-//
-//        Long[] actual3 = {1L, 2L, 3L};
-//        numberArrayAssert.isMax(actual3, 3L);
-//        numberArrayAssert.isMin(actual3, 1L);
-//        numberArrayAssert.isSum(actual3, 6L);
-//
-//        Short[] actual4 = {1, 2, 3};
-//        numberArrayAssert.isMax(actual4, (short)3);
-//        numberArrayAssert.isMin(actual4, (short)1);
-//        numberArrayAssert.isSum(actual4, (short)6);
-//
-//        Float[] actual5 = {1F, 2F, 3.5F};
-//        numberArrayAssert.isMax(actual4, 3.5F);
-//        numberArrayAssert.isMin(actual4, 1F);
-//        numberArrayAssert.isSum(actual4, 6.5F);
-//
-//        Number[] actual6 = {1F, 2F, 5L, 52.32, 3.5F};
-//        numberArrayAssert.isMax(actual4, 3.5F);
-//        numberArrayAssert.isMin(actual4, 1F);
-//        numberArrayAssert.isSum(actual4, 6.5F);
+        Integer[] actual1 = {1, 2, 3};
+
+        AnonymousNumberArrayAssert numberArrayAssert = new AnonymousNumberArrayAssert();
+        numberArrayAssert.isMax(actual1, 3);
+        numberArrayAssert.isMin(actual1, 1);
+        numberArrayAssert.isSum(actual1, 6);
+
+        Double[] actual2 = {1.1, 2.2, 3.3};
+        numberArrayAssert.isMax(actual2, 3.3);
+        numberArrayAssert.isMin(actual2, 1.1);
+        numberArrayAssert.isSum(actual2, 6.6);
+
+        Long[] actual3 = {1L, 2L, 3L};
+        numberArrayAssert.isMax(actual3, 3L);
+        numberArrayAssert.isMin(actual3, 1L);
+        numberArrayAssert.isSum(actual3, 6L);
+
+        Short[] actual4 = {1, 2, 3};
+        numberArrayAssert.isMax(actual4, (short)3);
+        numberArrayAssert.isMin(actual4, (short)1);
+        numberArrayAssert.isSum(actual4, (short)6);
+
+        Float[] actual5 = {1F, 2F, 3.5F};
+        numberArrayAssert.isMax(actual4, 3.5F);
+        numberArrayAssert.isMin(actual4, 1F);
+        numberArrayAssert.isSum(actual4, 6.5F);
+
+        Number[] actual6 = {1F, 2F, 5L, 52.32, 3.5F};
+        numberArrayAssert.isMax(actual4, 3.5F);
+        numberArrayAssert.isMin(actual4, 1F);
+        numberArrayAssert.isSum(actual4, 6.5F);
 
     }
 }
